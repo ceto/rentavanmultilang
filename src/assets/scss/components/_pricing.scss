@@ -1,0 +1,186 @@
+.prtbl {
+    // @extend .pagewrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: .875rem;
+    gap: .25em .25em;
+    margin:1rem auto 4rem;
+
+    @include breakpoint($bp-large) {
+        font-size: 1rem;
+        grid-template-columns: 4fr 1fr 1fr 1fr;
+    }
+
+}
+.prtbl__rowhead {
+    position: relative;
+    grid-column: 1 / span 3;
+    padding:1em 1.25em;
+    font-weight: $fw-normal;
+    text-align: center;
+    margin-top:2em;
+    line-height: 1.2;
+    //align-self: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: $cl-gray-xlight;
+    color: $cl-primary-var;
+
+    justify-content: center;
+    &:after {
+        content:'';
+        position: absolute;
+        left:0;
+        right: 0;
+        top:auto;
+        bottom:-.2rem;
+        height:.4rem;
+        background-color: inherit;
+    }
+
+    @include breakpoint($bp-large) {
+        text-align: left;
+        grid-column: 1 / span 1;
+        margin:0;
+        align-items: flex-start;
+        &:after {
+            content:'';
+            position: absolute;
+            left:auto;
+            right:-.2rem;
+            top:0;
+            bottom:0;
+            width:.4rem;
+            height: auto;
+            background-color: inherit;
+        }
+    }
+
+    // &:hover {
+    //     background-color: $cl-white;
+    //     & +.prtbl__price {
+            
+    //         background-color: $cl-primary;
+    //         color:$cl-white;
+    //         & +.prtbl__price {
+    //             background-color: $cl-primary;
+    //             color:$cl-white;
+    //             & +.prtbl__price {
+    //                 background-color: $cl-primary;
+    //                 color:$cl-white;
+    //             }
+    //         }
+    //     }
+    // }
+
+    svg {
+        fill: currentColor;
+        width: 4rem;
+        height: 2rem;
+        @include breakpoint($bp-large) {
+            width: 3.75rem;
+            height: 2rem;
+            position: absolute;
+            top:calc(50% - 1rem);
+            // margin:0;
+
+            + h3 {
+                margin-left: 4.875rem;
+            }
+            + h3 + p {
+                margin-left: 4.875rem;
+            }
+
+        }
+    
+    }
+
+    h3 {
+        font-size: 1.25em;
+        line-height: 1.2;
+        margin:0;
+        // text-transform: uppercase;
+        // @include breakpoint($bp-large) {
+
+        //     margin-left: 2.666em;
+        // }
+    }
+
+
+    p {
+        margin:0;
+        clear: both;
+        line-height: 1.4;
+        font-size: .9375em;
+
+    }
+    strong {
+        font-weight: $fw-bold;
+    }
+
+
+    &.topheader {
+        // display: none;
+        padding:.25em .875em;
+        font-size: 1.5em;
+        font-weight: $fw-black;
+        // color:$cl-secondary;
+        align-self: center;
+        text-transform: uppercase;
+        background-color: transparent;
+
+        @include breakpoint($bp-large) {
+            display: block;
+            grid-row: 1 / span 2;
+        }
+
+    }
+}
+
+.prtbl__price {
+    padding:1.125em .25em;
+    background-color: $cl-primary-var2;
+    color: $cl-black;
+    font-weight: $fw-black;
+    font-size: 1.3333em;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.topheader {
+        background-color: $cl-tertiary;
+        // border:2px solid $cl-tertiary;
+        color: $cl-white;
+        font-weight: $fw-bold;
+        // font-style: italic;
+        font-size: 1.125em;
+        padding:.75em .25em;
+        &.merged {
+            background-color: $cl-primary-var;
+            font-size: 1.5em;
+            padding:.5em .25em;
+        }
+    }
+    &.merged {
+        // border:none;
+       
+        padding:.75em .25em;
+        grid-column: 1 / span 3;
+        @include breakpoint($bp-large) {
+            grid-column: 2 / span 3;
+        }
+    }
+    small {
+        display: block;
+        font-weight: $fw-normal;
+        font-size: .666em;
+    }
+
+}
+

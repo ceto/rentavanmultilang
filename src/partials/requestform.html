@@ -1,0 +1,121 @@
+<form id="reqform" class="viaform reqform" method="post" action="incominglead.php" data-abide novalidate>
+    <div class="formstep">    
+        <ul class="inputgrid wider">
+            <li>
+                <h3 class="formstep__title">Személyes adatok</h3>
+                <ul class="inputgrid">
+                    <li><label><input type="text" placeholder="Név" required name="r_name"></label></li>
+                    <li><label><input type="email" placeholder="E-mail cím" pattern="email" required name="r_email"></label></li>
+                    <li><label><input type="text" placeholder="Telefonszám" required name="r_tel"></label></li>
+                    <li><label><input type="text" placeholder="Település" name="r_address"></label></li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="formstep__title">Egyéb üzenet</h3>
+                <ul class="inputgrid">
+                    <li><label><textarea rows="3" placeholder="Egyéb üzenet" name="r_message"></textarea></label></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+        <h3 class="formstep__title">Válaszd ki a bérelni kívánt járművet!*</h3>
+        <ul class="checkergrid">
+            <li>
+                <label class="checkboxlabel" for="r_vehicle0">
+                    <input id="r_vehicle0" type="checkbox" name="r_vehicle[]" value="Furgon - kicsi">
+                    Furgon kicsi
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle1">
+                    <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Furgon - zárt áruszállító">
+                    Furgon - zárt áruszállító
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle2">
+                    <input id="r_vehicle2" type="checkbox" name="r_vehicle[]" value="Elektromos furgon">
+                    Elektromos furgon
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle3">
+                    <input id="r_vehicle3" type="checkbox" name="r_vehicle[]" value="Kisteherautó">
+                    Kisteherautó
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle4">
+                    <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 35-45m<sup>3</sup>">
+                    Tehergépkocsi 35-45m<sup>3</sup>
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle5">
+                    <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi &gt;45m<sup>3</sup>">
+                    Tehergépkocsi &gt;45m<sup>3</sup>
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle6">
+                    <input id="r_vehicle6" type="checkbox" name="r_vehicle[]" value="Hűtős furgon">
+                    Hűtős furgon
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle7">
+                    <input id="r_vehicle7" type="checkbox" name="r_vehicle[]" value="Hűtős kisteherautó">
+                    Hűtős kisteherautó
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle8">
+                    <input id="r_vehicle8" type="checkbox" name="r_vehicle[]" value="Hűtős tehergépkocsi">
+                    Hűtős tehergépkocsi
+                </label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="formstep">
+        <h3 class="formstep__title">Mennyi időre szeretnéd bérelni?*</h3>
+        <ul class="checkergrid">
+            <li>
+                <label class="checkboxlabel" for="r_time1">
+                    <input id="r_time1" type="checkbox" name="r_time[]" value="1-30 nap">
+                    1-30 nap
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time2">
+                    <input id="r_time2" type="checkbox" name="r_time[]" value="1-3 hónap">
+                    1-3 hónap
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time3">
+                    <input id="r_time3" type="checkbox" name="r_time[]" value="4-12 hónap">
+                    4-12 hónap
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+                <label class="checkboxlabel small" for="r_acceptgdpr">
+                    <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
+                    Az ajánlatkérő adatlap kitöltésével elfogadom az <a href="https://viarent.hu/adatkezelesi-tajekoztato/" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat.
+                </label>
+                <label class="checkboxlabel small" for="r_acceptmarketing">
+                    <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
+                    Hozzájárulok a kereskedelmi és marketing célú megkeresésekhez
+                </label>
+    </div>
+    <input type="hidden" name="r_human" value="2">
+    <div class="formactions">
+        <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Küldés folyamatban" data-sendtext="Ajánlatkérés elküldése">
+            Ajánlatkérés elküldése
+        </button>
+    </div>
+    <div id="reqformresult" class="formresults reqformresult"></div>
+  </form>
