@@ -52,7 +52,6 @@ gulp.task('deploy',
   gulp.series('build', copycname, deployment)
 );
 
-
 function copycname() {
   return gulp.src('CNAME').pipe(gulp.dest(PATHS.dist));
 }
@@ -74,7 +73,6 @@ function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
 }
-
 
 // Copy page templates into finished HTML files
 function pages() {

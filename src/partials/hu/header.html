@@ -1,7 +1,7 @@
 <div class="sitemheaderwrap" data-magellan>
     <aside class="sitemheader">
-        <a class="sitemheader__brand" href="{{root}}"><img src="{{root}}/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
-        <a href="{{root}}#ajanlatkeres" class="sitemheader__cta">
+        <a class="sitemheader__brand" href="{{root}}{{lang}}/"><img src="{{root}}assets/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
+        <a href="#ajanlatkeres" class="sitemheader__cta">
             <span>Ajánlatkérés</span>
         </a>
         <button class="js-allopen sitemheader__toggler">
@@ -12,10 +12,10 @@
 </div>
 <div class="siteheaderwrap" data-magellan>
     <aside class="siteheader">
-        <a class="siteheader__brand" href="{{root}}"><img src="{{root}}/assets/img/logo.svg" alt="<?= get_bloginfo('name'); ?>"></a>
+        <a class="siteheader__brand" href="{{root}}{{lang}}/"><img src="{{root}}assets/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
         <nav class="siteheader__nav">
             <ul class="mainmenu show-for-tablet">
-                {{> mainmenu-forsubpage }}
+                {{> mainmenu }}
             </ul>
             <div class="siteheader__topbar">
                 <nav class="siteheader__topbar__nav">
@@ -26,7 +26,7 @@
                 <div class="siteheader__topbar__actions"> Tel: <a href="tel:+3624502250">+36 (24) 50 22 50</a></div>
             </div>
         </nav>
-        <a href="{{root}}#ajanlatkeres" class="siteheader__cta">
+        <a href="#ajanlatkeres" class="siteheader__cta">
             <span>Ajánlatkérés</span>
         </a>
     </aside>
