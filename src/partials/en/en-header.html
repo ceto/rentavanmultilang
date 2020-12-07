@@ -1,12 +1,12 @@
 <div class="sitemheaderwrap" data-magellan>
     <aside class="sitemheader">
         <a class="sitemheader__brand" href="{{root}}{{lang}}/"><img src="{{root}}assets/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
-        <a href="#ajanlatkeres" class="sitemheader__cta">
-            <span>Ajánlatkérés</span>
+        <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="sitemheader__cta">
+            <span>Get a Quote</span>
         </a>
         <button class="js-allopen sitemheader__toggler">
             {{ svginsert "burger" }}
-            <span>Menü</span>
+            <span>Menu</span>
         </button>
     </aside>
 </div>
@@ -26,8 +26,8 @@
                 <div class="siteheader__topbar__actions"> Tel: <a href="tel:+3624502250">+36 (24) 50 22 50</a></div>
             </div>
         </nav>
-        <a href="#ajanlatkeres" class="siteheader__cta">
-            <span>Ajánlatkérés</span>
+        <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="siteheader__cta">
+            <span>Get a Quote</span>
         </a>
     </aside>
 </div>
