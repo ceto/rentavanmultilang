@@ -12,7 +12,8 @@
     // $bcc_email = "leads@vieeye.hu";
 
     $incomingsubject = __('VIARENT.HU LAKOSSÁGI | Ajánlatkérés','viarent');
-    $respsubject = "VIARENT.HU LAKOSSÁGI - Érdeklődését rögzítettük";
+    $respsubject = __('Köszönjük ajánlatkérésedet, megkaptuk, hamarosan jelentkezünk - VIARENT.', 'viarent');
+
     $data = array(
         'name' => array (
             'label' => __('Név', 'viarent'),
@@ -26,8 +27,16 @@
             'label' => __('Telefon', 'viarent'),
             'value' => '',
         ),
-        'address' => array (
+        'city' => array (
             'label' => __('Település', 'viarent'),
+            'value' => '',
+        ),
+        'zip' => array (
+            'label' => __('Irányítószám', 'viarent'),
+            'value' => '',
+        ),
+        'address' => array (
+            'label' => __('Utca, házszám', 'viarent'),
             'value' => '',
         ),
         'acceptgdpr' => array (
@@ -60,7 +69,7 @@
         die($output);
     }
 
-    if( (strlen($_POST["name"]) < 2) || (strlen($_POST["email"]) < 2) || (strlen($_POST["tel"]) < 2) || (strlen($_POST["address"]) < 2) ) {
+    if( (strlen($_POST["name"]) < 2) || (strlen($_POST["email"]) < 2) || (strlen($_POST["tel"]) < 2) || (strlen($_POST["address"]) < 2) || (strlen($_POST["zip"]) < 2) || (strlen($_POST["city"]) < 2) ) {
         $output = json_encode(array('type'=>'error', 'text' => __('Hiányzó kötelező mező. Ellenőrizze a megadott adatokat.','viarent') ));
         die($output);
     }
@@ -69,6 +78,8 @@
     $data['email']['value'] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $data['tel']['value'] = filter_var($_POST["tel"], FILTER_SANITIZE_STRING);
     $data['address']['value'] = filter_var($_POST["address"], FILTER_SANITIZE_STRING);
+    $data['city']['value'] = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
+    $data['zip']['value'] = filter_var($_POST["zip"], FILTER_SANITIZE_STRING);
     $data['vehicle']['value'] = filter_var($_POST["vehicle"], FILTER_SANITIZE_STRING);
     $data['time']['value'] = filter_var($_POST["time"], FILTER_SANITIZE_STRING);
     $data['acceptgdpr']['value'] = filter_var($_POST["acceptgdpr"], FILTER_SANITIZE_STRING);
@@ -163,6 +174,7 @@
         $output = json_encode(array('type'=>'error', 'text' => __('Hiba történt küldés során, próbálkozz újra!','viarent')));
         die($output);
     } else {
+        $incominghtmlcontent = get_field('emailthanks', 'option').$incominghtmlcontent;
         $respsentMail = @wp_mail($data['email']['value'], $respsubject, $incominghtmlcontent, $respincomingheaders);
         $output = json_encode(array('type'=>'success', 'text' => __('Köszönjük megkeresését! Üzenetét rögzítettük, munkatársunk hamarosan jelentkezik.','viarent')));
         die($output);

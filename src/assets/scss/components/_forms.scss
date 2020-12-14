@@ -14,11 +14,28 @@
     font-weight: $fw-bold;
 }
 
+label {
+    position: relative;
+}
+
+.fauxplaceholder {
+    font-size: .666em;
+    line-height: 1;
+    font-weight: $fw-bold;
+    display: inline-block;
+    position: absolute;
+    top:0;
+    left:0;
+    padding: $input-padding/1.25 0 0 $input-padding*1.125;
+    display: none;
+    color:$cl-gray;
+}
 
 select {
     width:100%;
     margin:0;
 }
+
 
 .checkboxlabel {
     line-height: 1.2;
@@ -91,7 +108,29 @@ select {
     textarea {
         margin: 0;
         &.is-invalid-input {
-            // border-color: $cl-primary;
+            background-color: $cl-gray-xlight;
+        }
+        &:focus {
+            padding-top:$input-padding*1.666;
+            padding-bottom: $input-padding/1.666;
+            & + .fauxplaceholder {
+                display: block;
+            }
+            &::-webkit-input-placeholder {
+                color:transparent;
+            }
+
+            &:-ms-input-placeholder {
+                color:transparent;
+            }
+
+            &::-ms-input-placeholder {
+                color:transparent;
+            }
+
+            &::placeholder {
+                color:transparent;
+            }
         }
     }
     fieldset {
@@ -166,6 +205,14 @@ select {
         padding: 0;
         flex-basis: 12rem;
         flex-grow: 1;
+        &.full {
+            flex-basis: 100%;
+            // margin: 0.5rem 0.25rem;
+        }
+        &.third {
+            flex-basis: 8rem;
+            // margin: 0.5rem 0.25rem;
+        }
     }
     &.strict {
         > li {

@@ -127,7 +127,10 @@ $(".reqform").on("submit", function(ev, frm) {
     var user_name = $("input[name=r_name]").val();
     var user_email = $("input[name=r_email]").val();
     var user_tel = $("input[name=r_tel]").val();
+    var user_zip = $("input[name=r_zip]").val();
+    var user_city = $("input[name=r_city]").val();
     var user_address = $("input[name=r_address]").val();
+
     var user_message = $("textarea[name=r_message]").val();
     
     var user_acceptgdpr = $("input[name=r_acceptgdpr]").is(":checked")?1:0;
@@ -159,6 +162,8 @@ $(".reqform").on("submit", function(ev, frm) {
             name: user_name,
             email: user_email,
             tel: user_tel,
+            zip: user_zip,
+            city: user_city,
             address: user_address,
             message: user_message,
             acceptgdpr: user_acceptgdpr,

@@ -9,9 +9,9 @@
     padding: 0;
     z-index: 2;
     height: $bottombarheight;;
-    background: rgba(#000,.95);
+    background: rgba($cl-primary,.97);
     box-shadow: 0 0 .25rem 0 rgba(#000,.5);
-    color:$cl-gray-light;
+    color:$cl-gray-xlight;
     @include breakpoint($bp-tablet) {
         display: none;
     }
@@ -67,7 +67,7 @@
         max-width: #{$globalsidebarwidth-small/1.25};
         display: block;
         margin: 0 auto .25em;
-        fill:$cl-gray-light;
+        fill:$cl-gray-xlight;
         max-width: 1.875em;
 
     }

@@ -4,16 +4,55 @@
             <li>
                 <h3 class="formstep__title">Személyes adatok</h3>
                 <ul class="inputgrid">
-                    <li><label><input type="text" placeholder="Név" required name="r_name"></label></li>
-                    <li><label><input type="email" placeholder="E-mail cím" pattern="email" required name="r_email"></label></li>
-                    <li><label><input type="text" placeholder="Telefonszám" required name="r_tel"></label></li>
-                    <li><label><input type="text" placeholder="Település" name="r_address"></label></li>
+                    <li class="full">
+                        <label>
+                            <input type="text" placeholder="Név*" required name="r_name">
+                            <span class="fauxplaceholder">Név*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="email" placeholder="E-mail cím*" pattern="email" required name="r_email">
+                            <span class="fauxplaceholder">E-mail cím*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="text" placeholder="Telefonszám*" required name="r_tel">
+                            <span class="fauxplaceholder">Telefonszám*</span>
+                        </label>
+                    </li>
+                </ul>
+                <ul class="inputgrid">
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Irsz.*" required name="r_zip">
+                            <span class="fauxplaceholder">Irsz.*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Település*" required name="r_city">
+                            <span class="fauxplaceholder">Település*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Utca, házszám" name="r_address">
+                            <span class="fauxplaceholder">Utca, házszám</span>
+                        </label>
+                    </li>
                 </ul>
             </li>
             <li>
                 <h3 class="formstep__title">Egyéb üzenet</h3>
                 <ul class="inputgrid">
-                    <li><label><textarea rows="3" placeholder="Egyéb üzenet" name="r_message"></textarea></label></li>
+                    <li>
+                        <label>
+                            <textarea rows="5" placeholder="Egyéb üzenet" name="r_message"></textarea>
+                            <span class="fauxplaceholder">Egyéb üzenet</span>
+                        </label>
+                    </li>
                 </ul>
             </li>
         </ul>
