@@ -1,0 +1,33 @@
+<div class="sitemheaderwrap" data-magellan>
+    <aside class="sitemheader">
+        <a class="sitemheader__brand" href="{{root}}{{lang}}/"><img src="{{root}}assets/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
+        <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="sitemheader__cta">
+            <span>Žiadosť o ponuku</span>
+        </a>
+        <button class="js-allopen sitemheader__toggler">
+            {{ svginsert "burger" }}
+            <span>Menu</span>
+        </button>
+    </aside>
+</div>
+<div class="siteheaderwrap" data-magellan>
+    <aside class="siteheader">
+        <a class="siteheader__brand" href="{{root}}{{lang}}/"><img src="{{root}}assets/img/logo.svg" alt="RENT-A-VAN by Viarent"></a>
+        <nav class="siteheader__nav">
+            <ul class="mainmenu show-for-tablet">
+                {{> sk-mainmenu }}
+            </ul>
+            <div class="siteheader__topbar">
+                <nav class="siteheader__topbar__nav">
+                    <ul class="topbarmenu">
+                        {{> sk-topbarmenu }}
+                    </ul>
+                </nav>
+                <div class="siteheader__topbar__actions"> Tel: <a href="tel:+421238113673">+421 2 381 1 3673</a></div>
+            </div>
+        </nav>
+        <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="siteheader__cta">
+            <span>Žiadosť o ponuku</span>
+        </a>
+    </aside>
+</div>

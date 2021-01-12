@@ -1,0 +1,160 @@
+<form id="reqform" class="viaform reqform" method="post" action="../incominglead.php" data-abide novalidate>
+    <div class="formstep">    
+        <ul class="inputgrid wider">
+            <li>
+                <h3 class="formstep__title">Osobné údaje</h3>
+                <ul class="inputgrid">
+                    <li class="full">
+                        <label>
+                            <input type="text" placeholder="Meno*" required name="r_name">
+                            <span class="fauxplaceholder">Meno*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="email" placeholder="E-mail adresa*" pattern="email" required name="r_email">
+                            <span class="fauxplaceholder">E-mail adresa*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="text" placeholder="Telefónne číslo*" required name="r_tel">
+                            <span class="fauxplaceholder">Telefónne číslo*</span>
+                        </label>
+                    </li>
+                </ul>
+                <ul class="inputgrid">
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="ZIP*" required name="r_zip">
+                            <span class="fauxplaceholder">ZIP*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Obec*" required name="r_city">
+                            <span class="fauxplaceholder">Obec*</span>
+                        </label>
+                    </li>
+                    <li class="third">
+                        <label>
+                            <input type="text" placeholder="Street, house number..." name="r_address">
+                            <span class="fauxplaceholder">Street, house number...</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3 class="formstep__title">Iná správa</h3>
+                <ul class="inputgrid">
+                    <li>
+                        <label>
+                            <textarea rows="5" placeholder="Iná správa" name="r_message"></textarea>
+                            <span class="fauxplaceholder">Iná správa</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+        <h3 class="formstep__title">Vyber si vozidlo, ktoré si chceš prenajať*</h3>
+        <ul class="checkergrid">
+            <li>
+                <label class="checkboxlabel" for="r_vehicle0">
+                    <input id="r_vehicle0" type="checkbox" name="r_vehicle[]" value="Van - small">
+                    Van - small
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle1">
+                    <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Van - closed box">
+                    Van - closed box
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle2">
+                    <input id="r_vehicle2" type="checkbox" name="r_vehicle[]" value="Electric van">
+                    Electric van
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle3">
+                    <input id="r_vehicle3" type="checkbox" name="r_vehicle[]" value="Pickup truck">
+                    Pickup truck
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle4">
+                    <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Truck 35-45m<sup>3</sup>">
+                    Truck 35-45m<sup>3</sup>
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle5">
+                    <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Truck &gt;45m<sup>3</sup>">
+                    Truck &gt;45m<sup>3</sup>
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle6">
+                    <input id="r_vehicle6" type="checkbox" name="r_vehicle[]" value="Refrigerated van">
+                    Refrigerated van
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle7">
+                    <input id="r_vehicle7" type="checkbox" name="r_vehicle[]" value="Refrigerated pickup truck">
+                    Refrigerated pickup truck
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle8">
+                    <input id="r_vehicle8" type="checkbox" name="r_vehicle[]" value="Refrigerated truck">
+                    Refrigerated truck
+                </label>
+            </li>
+        </ul>
+    </div>
+
+    <div class="formstep">
+        <h3 class="formstep__title">Na ako dlho si chcete prenajať vozidlo?*</h3>
+        <ul class="checkergrid">
+            <li>
+                <label class="checkboxlabel" for="r_time1">
+                    <input id="r_time1" type="checkbox" name="r_time[]" value="1-30 days">
+                    1-30 days
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time2">
+                    <input id="r_time2" type="checkbox" name="r_time[]" value="1-3 months">
+                    1-3 months
+                </label>
+            </li>
+            <li>
+                <label class="checkboxlabel" for="r_time3">
+                    <input id="r_time3" type="checkbox" name="r_time[]" value="4-12 months">
+                    4-12 months
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="formstep">
+                <label class="checkboxlabel small" for="r_acceptgdpr">
+                    <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
+                    Vyplnením formulára prijímam obsah <a href="https://viarent.hu/adatkezelesi-tajekoztato/" target="_blank"> informácií o správe údajov.</a>
+                </label>
+                <label class="checkboxlabel small" for="r_acceptmarketing">
+                    <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
+                    Súhlasím s ponukami na obchodné a marketingové účely
+                </label>
+    </div>
+    <input type="hidden" name="r_human" value="2">
+    <div class="formactions">
+        <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Send in progress" data-sendtext="Message sent">
+            Odoslať žiadosť o cenovú ponuku
+        </button>
+    </div>
+    <div id="reqformresult" class="formresults reqformresult"></div>
+  </form>
