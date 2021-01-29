@@ -42,6 +42,19 @@
     grid-column: 1 / span 2;
     padding: .5em .25em .4666em;
     font-size: .9375em;
+
+    [lang^="sr"] & {
+        font-size: 1.5666em;
+        padding: .125em .125em .125em;
+    }
+    [lang^="sk"] & {
+        font-size: .8125em;
+        // padding: .125em .125em .125em;
+    }
+    [lang^="en"] & {
+        font-size: .8125em;
+        // padding: .125em .125em .125em;
+    }
 }
 
 .ass__247 {
