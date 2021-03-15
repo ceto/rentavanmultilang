@@ -140,6 +140,7 @@
 }
 
 .prtbl__price {
+    position: relative;
     padding:1.125em .25em;
     background-color: $cl-primary-var2;
     color: $cl-black;
@@ -152,6 +153,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    &:after {
+        content: attr(data-action);
+        position: absolute;
+        bottom:1.125em;
+        font-size: .5em;
+        display: none;
+    }
+    &:focus {
+        color: $cl-black;
+    }
+    &:hover {
+        background-color: $cl-secondary;
+        color: #fff;
+        &:after {
+            display: block;
+        }
+        
+    }
+
+
 
     &.topheader {
         background-color: $cl-tertiary;

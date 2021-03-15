@@ -220,3 +220,13 @@ $(".reqform").on("submit", function(ev, frm) {
 $('.reqform input, .reqform textarea, .reqform [name="r_acceptgdpr"]').keyup(function() {
     $(".reqformresult").slideUp();
 });
+
+
+$('a.prtbl__price').on('click', function(e) {
+    $('input[name^="r_time"], input[name^="r_vehicle"]').prop( "checked", false );
+    var fields = $(this).attr('data-target').split('|');
+    var vehicle = fields[0];
+    var time = fields[1];
+    $('#' + vehicle).prop( "checked", true );
+    $('#' + time).prop( "checked", true );
+});
