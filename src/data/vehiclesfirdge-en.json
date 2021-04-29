@@ -1,0 +1,46 @@
+[
+    {
+      "name": "Van - refrigerated",
+      "info": "Cargo area: 13/20 m3 · Total weight: 3,5 t · Driving license: \"B",
+      "1-3days": "22 500 HUF",
+      "4-10days": "19 990 HUF",
+      "11-30days": "14 990 HUF",
+      "1-3months": "13 990 HUF",
+      "4-6months": "12 500 HUF",
+      "7-12-months": "11 990 HUF",
+      "icon": "v-furgon-hutos"
+    },
+    {
+      "name": "Pickup truck - refrigerated 6,5 - 7,5t",
+      "info": "Cargo area: 25-44 m3 · Total weight: 6,5-7,5 t · Driving license: \"C",
+      "1-3days": "34 990 HUF",
+      "4-10days": "29 990 HUF",
+      "11-30days": "24 990 HUF",
+      "1-3months": "22 990 HUF",
+      "4-6months": "19 990 HUF",
+      "7-12-months": "18 500 HUF",
+      "icon": "v-kisteherauto-hutos"
+    },
+    {
+      "name": "Refrigerated truck 12t",
+      "info": "Cargo area: 35-45 m3 · Total weight: 12 t · Driving license: \"C",
+      "1-3days": "39 990 HUF",
+      "4-10days": "34 990 HUF",
+      "11-30days": "29 990 HUF",
+      "1-3months": "27 990 HUF",
+      "4-6months": "24 990 HUF",
+      "7-12-months": "19 990 HUF",
+      "icon": "v-teherauto-hutos"
+    },
+    {
+      "name": "Refrigerated truck 18t",
+      "info": "Cargo area: 45+ m3 · Total weight: 18 t · Driving license: \"C",
+      "1-3days": "42 990 HUF",
+      "4-10days": "36 990 HUF",
+      "11-30days": "31 990 HUF",
+      "1-3months": "29 990 HUF",
+      "4-6months": "26 500 HUF",
+      "7-12-months": "25 990 HUF",
+      "icon": "v-teherauto-hutos"
+    }
+]
