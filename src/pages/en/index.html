@@ -113,58 +113,26 @@ layout: english
                 Vans and trucks
             </div>
             <div class="prtbl__price topheader merged">Rental fee<small>HUF + VAT/day</small></div>
-            <div class="prtbl__price topheader">1-30 days</div>
+            <div class="prtbl__price topheader">1-3 days</div>
+            <div class="prtbl__price topheader">4-10 days</div>
+            <div class="prtbl__price topheader">11-30 days</div>
             <div class="prtbl__price topheader">1-3 months</div>
-            <div class="prtbl__price topheader">4-12 months</div>
+            <div class="prtbl__price topheader">4-6 months</div>
+            <div class="prtbl__price topheader">7-12 months</div>
+
+            {{#each vehicles-en}}
             <div class="prtbl__rowhead">
-                {{svginsert "v-fura"}}
-                <h3>Van - small</h3>
-                <p>Cargo area: <strong>6,6 m<sup>3</sup></strong></strong> &middot; Total weight: <strong>2,8 t</strong> &middot; Driving license: <strong>"B"</strong></p>
+                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
+                <h3>{{name}}</h3>
+                <p>{{info}}</p>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>9 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>8 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>7 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-furgon"}}
-                <h3>Van - closed box</h3>
-                <p>Cargo area: <strong>14-20 m<sup>3</sup></strong> &middot; Total weight: <strong>3,5 t</strong> &middot; Driving license: <strong>"B"</strong></p>
-        
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>9 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>8 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>7 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-furgon-elektromos"}}
-                <h3>e-Van</h3>
-                <p>Cargo area: <strong>14 m<sup>3</sup></strong> &middot; Total weight: <strong>3,5 t</strong> &middot; Driving license: <strong>"B"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>12 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>12 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>12 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-kisteherauto-ponyvas"}}
-                <h3>Pickup truck - with canvas</h3>
-                <p>Cargo area: <strong>25-44 m<sup>3</sup></strong> &middot; Total weight: <strong>6,5-7,5 t</strong> &middot; Driving license: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>20 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>19 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>13 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto"}}
-                <h3>Truck</h3>
-                <p>Superstructure: <strong>with canvas or box</strong> &middot; Cargo area: <strong>35-45 m<sup>3</sup></strong> &middot; Total weight: <strong>12 t</strong> &middot; Driving license: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>21 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>20 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>14 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto-ponyvas"}}
-                <h3>Truck 45+</h3>
-                <p>Superstructure: <strong>with canvas or box</strong> &middot; Cargo area: <strong>35-45 m<sup>3</sup></strong> &middot; Total weight: <strong>14-18 t</strong> &middot; Driving license: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>22 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>21 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>15 990 HUF</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-3 days</span>{{1-3days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time2" data-action="Ask for an offer"><span class="mobilelabel">4-10 days</span>{{4-10days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time3" data-action="Ask for an offer"><span class="mobilelabel">11-30 days</span>{{11-30days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time4" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>{{1-3months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time5" data-action="Ask for an offer"><span class="mobilelabel">4-6 months</span>{{4-6months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time6" data-action="Ask for an offer"><span class="mobilelabel">7-12 months</span>{{7-12months}}</a>
+            {{/each}}
         </div>
         
         <div class="prtbl" data-magellan>
@@ -172,33 +140,28 @@ layout: english
                 Refrigerated - vans and trucks
             </div>
             <div class="prtbl__price topheader merged">Rental fee<small>HUF + VAT/day</small></div>
-            <div class="prtbl__price topheader">1-30 days</div>
+            <div class="prtbl__price topheader">1-3 days</div>
+            <div class="prtbl__price topheader">4-10 days</div>
+            <div class="prtbl__price topheader">11-30 days</div>
             <div class="prtbl__price topheader">1-3 months</div>
-            <div class="prtbl__price topheader">4-12 months</div>
+            <div class="prtbl__price topheader">4-6 months</div>
+            <div class="prtbl__price topheader">7-12 months</div>
+
+            {{#each vehiclesfridge-en}}
             <div class="prtbl__rowhead">
-                {{svginsert "v-furgon-hutos"}}
-                <h3>Van - refrigerated</h3>
-                <p>Cargo area: <strong>14-20 m<sup>3</sup></strong> &middot; Total weight: <strong>3,5 t</strong> &middot; Driving license: <strong>"B"</strong></p>
+                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
+                <h3>{{name}}</h3>
+                <p>{{info}}</p>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>18 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>14 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>11 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-kisteherauto-hutos"}}
-                <h3>Pickup truck - refrigerated</h3>
-                <p>Cargo area: <strong>25-44 m<sup>3</sup></strong> &middot; Total weight: <strong>6,5-7,5 t</strong> &middot; Driving license: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>23 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>21 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>15 990 HUF</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto-hutos"}}
-                <h3>Refrigerated truck</h3>
-                <p>Cargo area: <strong>45 m<sup>3</sup></strong> &middot; Total weight: <strong>10-18 t</strong> &middot; Driving license: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-30 days</span>24 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time2" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>22 990 HUF</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time3" data-action="Ask for an offer"><span class="mobilelabel">4-12 months</span>16 990 HUF</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time1" data-action="Ask for an offer"><span class="mobilelabel">1-3 days</span>{{1-3days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time2" data-action="Ask for an offer"><span class="mobilelabel">4-10 days</span>{{4-10days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time3" data-action="Ask for an offer"><span class="mobilelabel">11-30 days</span>{{11-30days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time4" data-action="Ask for an offer"><span class="mobilelabel">1-3 months</span>{{1-3months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time5" data-action="Ask for an offer"><span class="mobilelabel">4-6 months</span>{{4-6months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time6" data-action="Ask for an offer"><span class="mobilelabel">7-12 months</span>{{7-12months}}</a>
+            {{/each}}
+
+
         </div>
 
         <p><strong>Other conditions:</strong> Rear lifting wall +10% extra fee/day. Daily mileage: 3,5T 200 km. Over 3,5T 300 km. If you exceed the average mileage, we charge an additional fee of HUF 20 + VAT/km. Deposit: Up to a total weight of 3.5 tons HUF 100,000 (gross), over a total weight of 3.5 tons HUF 400,000 (gross). Valid from 1 August 2020.</p>

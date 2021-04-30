@@ -7,7 +7,7 @@
       "11-30days": "9 990 HUF",
       "1-3months": "9 500 HUF",
       "4-6months": "8 990 HUF",
-      "7-12-months": "8 500 HUF",
+      "7-12months": "8 500 HUF",
       "icon": "v-fura"
     },
     {
@@ -18,7 +18,7 @@
       "11-30days": "9 990 HUF",
       "1-3months": "9 500 HUF",
       "4-6months": "8 990 HUF",
-      "7-12-months": "8 500 HUF",
+      "7-12months": "8 500 HUF",
       "icon": "v-furgon"
     },
     {
@@ -29,7 +29,7 @@
       "11-30days": "13 500 HUF",
       "1-3months": "12 990 HUF",
       "4-6months": "12 990 HUF",
-      "7-12-months": "12 990 HUF",
+      "7-12months": "12 990 HUF",
       "icon": "v-furgon-elektromos"
     },
     {
@@ -40,7 +40,7 @@
       "11-30days": "14 990 HUF",
       "1-3months": "13 990 HUF",
       "4-6months": "12 990 HUF",
-      "7-12-months": "12 500 HUF",
+      "7-12months": "12 500 HUF",
       "icon": "v-kisteherauto-billenoplatos"
     },
     {
@@ -51,7 +51,7 @@
       "11-30days": "12 990 HUF",
       "1-3months": "11 990 HUF",
       "4-6months": "10 990 HUF",
-      "7-12-months": "10 500 HUF",
+      "7-12months": "10 500 HUF",
       "icon": "v-kisteherauto-duplafulkes"
     },
     {
@@ -62,7 +62,7 @@
       "11-30days": "22 500 HUF",
       "1-3months": "19 990 HUF",
       "4-6months": "17 990 HUF",
-      "7-12-months": "15 990 HUF",
+      "7-12months": "15 990 HUF",
       "icon": "v-kisteherauto-ponyvas"
     },
     {
@@ -73,7 +73,7 @@
       "11-30days": "24 990 HUF",
       "1-3months": "19 990 HUF",
       "4-6months": "17 990 HUF",
-      "7-12-months": "16 990 HUF",
+      "7-12months": "16 990 HUF",
       "icon": "v-teherauto"
     },
     {
@@ -84,7 +84,7 @@
       "11-30days": "26 990 HUF",
       "1-3months": "22 500 HUF",
       "4-6months": "19 990 HUF",
-      "7-12-months": "19 500 HUF",
+      "7-12months": "19 500 HUF",
       "icon": "v-teherauto-ponyvas"
     }
 ]
