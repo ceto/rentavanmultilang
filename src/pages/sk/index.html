@@ -108,63 +108,32 @@ layout: slovak
     <h2 class="sectitle text-center">Tarifná tabuľka pre krátkodobý prenájom</h2>
     <h4 class="text-center">Dodávky, vany a nákladné vozidlá.<br>Chladiarenské, plachtové a s boxom.</h4>
     <div class="pagewrap novpad">
-        <div class="prtbl">
+
+        <div class="prtbl" data-magellan>
             <div class="prtbl__rowhead topheader">
                 Dodávky a nákladné autá
             </div>
             <div class="prtbl__price topheader merged">Cena prenájmu<small>EUR + DPH/deň</small></div>
-            <div class="prtbl__price topheader">1-30 dní</div>
+            <div class="prtbl__price topheader">1-3 dni</div>
+            <div class="prtbl__price topheader">4-10 dní</div>
+            <div class="prtbl__price topheader">11-30 dní</div>
             <div class="prtbl__price topheader">1-3 mesiace</div>
-            <div class="prtbl__price topheader">4-12 mesiace</div>
+            <div class="prtbl__price topheader">4-6 mesiacov</div>
+            <div class="prtbl__price topheader">7-12 mesiacov</div>
+
+            {{#each vehicles-sk}}
             <div class="prtbl__rowhead">
-                {{svginsert "v-fura"}}
-                <h3>Dodávka - malá</h3>
-                <p>Nákladný priestor: <strong>6,6 m<sup>3</sup></strong></strong> &middot; Celková hmotnosť: <strong>2,8 tony</strong> &middot; Vodičské oprávnenie: <strong>"B"</strong></p>
+                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
+                <h3>{{name}}</h3>
+                <p>{{info}}</p>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 29</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 26</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle0|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 23</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-furgon"}}
-                <h3>Uzavretá dodávka</h3>
-                <p>Nákladný priestor: <strong>14-20 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>3,5 tony</strong> &middot; Vodičské oprávnenie: <strong>"B"</strong></p>
-        
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 29</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 26</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle1|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 23</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-furgon-elektromos"}}
-                <h3>e-Dodávka</h3>
-                <p>Nákladný priestor: <strong>14 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>3,5 tony</strong> &middot; Vodičské oprávnenie: <strong>"B"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 36</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 36</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle2|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 36</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-kisteherauto-ponyvas"}}
-                <h3>Malé nákladné vozidlo - s plachtou</h3>
-                <p>Nákladný priestor: <strong>25-44 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>6,5-7,5 tony</strong> &middot; Vodičské oprávnenie: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 59</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 57</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle3|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 39</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto"}}
-                <h3>Nákladné vozidlo</h3>
-                <p>Konštrukcia: <strong>skriňová alebo s plachtou</strong> &middot; Nákladný priestor: <strong>35-45 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>12 tony</strong> &middot; Vodičské oprávnenie: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 63</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 59</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle4|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 43</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto-ponyvas"}}
-                <h3>Nákladné vozidlo 45+</h3>
-                <p>Konštrukcia: <strong>skriňová alebo s plachtou</strong> &middot; Nákladný priestor: <strong>35-45 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>14-18 tony</strong> &middot; Vodičské oprávnenie: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 65</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 63</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle5|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 46</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 dni</span>{{1-3days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-10 dní</span>{{4-10days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">11-30 dní</span>{{11-30days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time4" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>{{1-3months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time5" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-6 mesiacov</span>{{4-6months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time6" data-action="Žiadosť o ponuku"><span class="mobilelabel">7-12 mesiacov</span>{{7-12months}}</a>
+            {{/each}}
         </div>
         
         <div class="prtbl">
@@ -172,39 +141,37 @@ layout: slovak
                 Chladiace dodávky a nákladné autá
             </div>
             <div class="prtbl__price topheader merged">Cena prenájmu<small>EUR + DPH/deň</small></div>
-            <div class="prtbl__price topheader">1-30 dní</div>
+            <div class="prtbl__price topheader">1-3 dni</div>
+            <div class="prtbl__price topheader">4-10 dní</div>
+            <div class="prtbl__price topheader">11-30 dní</div>
             <div class="prtbl__price topheader">1-3 mesiace</div>
-            <div class="prtbl__price topheader">4-12 mesiace</div>
+            <div class="prtbl__price topheader">4-6 mesiacov</div>
+            <div class="prtbl__price topheader">7-12 mesiacov</div>
+
+            {{#each vehiclesfridge-sk}}
             <div class="prtbl__rowhead">
-                {{svginsert "v-furgon-hutos"}}
-                <h3>Dodávka - chladiaca</h3>
-                <p>Nákladný priestor: <strong>14-20 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>3,5 tony</strong> &middot; Vodičské oprávnenie: <strong>"B"</strong></p>
+                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
+                <h3>{{name}}</h3>
+                <p>{{info}}</p>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 54</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 43</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle6|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 34</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-kisteherauto-hutos"}}
-                <h3>Malé nákladné vozidlo - chladiace</h3>
-                <p>Nákladný priestor: <strong>25-44 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>6,5-7,5 tony</strong> &middot; Vodičské oprávnenie: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 69</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 63</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle7|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 46</a>
-            <div class="prtbl__rowhead">
-                {{svginsert "v-teherauto-hutos"}}
-                <h3>Chladiace nákladné vozidlo</h3>
-                <p>Nákladný priestor: <strong>45 m<sup>3</sup></strong> &middot; Celková hmotnosť: <strong>10-18 tony</strong> &middot; Vodičské oprávnenie: <strong>"C"</strong></p>
-            </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-30 dní</span>€ 72</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>€ 65</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle8|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-12 mesiace</span>€ 49</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 dni</span>{{1-3days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-10 dní</span>{{4-10days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">11-30 dní</span>{{11-30days}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time4" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>{{1-3months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time5" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-6 mesiacov</span>{{4-6months}}</a>
+            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time6" data-action="Žiadosť o ponuku"><span class="mobilelabel">7-12 mesiacov</span>{{7-12months}}</a>
+            {{/each}}
+
+
         </div>
 
-        <p><strong>Ďalšie podmienky:</strong>Zadná zdvíhacia stena + 10% zvýšenie poplatku/deň. Denný počet kilometrov: 3,5 t 200 km. Nad 3,5 t 300 km. V prípade použitia nad priemerný počet najazdených kilometrov účtujeme príplatok 0.06 EUR + DPH/km. Kaucia: Do celkovej hmotnosti 3,5 tony EUR 300 (brutto), do celkovej hmotnosti 3,5 tony 1300 EUR (brutto). Platné od 1. augusta 2020.</p>
+        <p><strong>Hydraulické čelo</strong> mraziarenská verzia, skriňová verzia a dodávka s dlžkou L4 + 10 % k dennej cene prenájmu.
+            <strong>Denný limit kilometrov:</strong> vozidlo do 3,5t – 200 km/deň; vozidlo nad 3,5t – 300 km/deň. Pri prekročení denného
+            limitu kilometrov sa úctuje príplatok 0,055 EUR + DPH/km. <strong>Kaucia:</strong> vozidlo do 3,5t - 300.-Eur (Brutto), vozidlo nad
+            3,5t - 1100.-Eur (Brutto) Ceny platné od 01.08.2020</p>
         <p>&nbsp;</p>
         <div class="text-center" data-magellan>
-            <a href="#ajanlatkeres" class="button large secondary">Žiadosť o ponuku</a> <a href="{{root}}assets/img/content/tarifatablazat-rentavan-sk.pdf" target="_blank" class="button large tertiary">Tarifná tabuľka [PDF, 269KB]</a>
+            <a href="#ajanlatkeres" class="button large secondary">Žiadosť o ponuku</a> <a href="{{root}}assets/img/content/tarifatablazat-rentavan-sk.pdf" target="_blank" class="button large tertiary">Tarifná tabuľka [PDF, 290KB]</a>
         </div>
     </div>
 </section>
