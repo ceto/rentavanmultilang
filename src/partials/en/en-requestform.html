@@ -63,7 +63,7 @@
             {{#each vehicles-en}}
                 <li>
                     <label class="checkboxlabel" for="r_vehicle{{@key}}">
-                        <input id="r_vehicle{{@key}}" type="checkbox" name="r_vehicle[]" value="Van - small">
+                        <input id="r_vehicle{{@key}}" type="checkbox" name="r_vehicle[]" value="{{name}}">
                         {{name}}
                     </label>
                 </li>
@@ -71,7 +71,7 @@
             {{#each vehiclesfridge-en}}
                 <li>
                     <label class="checkboxlabel" for="r_vehiclef{{@key}}">
-                        <input id="r_vehiclef{{@key}}" type="checkbox" name="r_vehicle[]" value="Van - small">
+                        <input id="r_vehiclef{{@key}}" type="checkbox" name="r_vehicle[]" value="{{name}}">
                         {{name}}
                     </label>
                 </li>
@@ -114,7 +114,7 @@
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time6">
-                    <input id="r_time6" type="checkbox" name="r_time[]" value="4-12 months">
+                    <input id="r_time6" type="checkbox" name="r_time[]" value="7-12 months">
                     7-12 months
                 </label>
             </li>
