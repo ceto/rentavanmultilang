@@ -51,6 +51,10 @@ gulp.task('deploy',
   gulp.series('build', copycname, deployment)
 );
 
+gulp.task('phpbuild',
+  gulp.series('build', cleanphp, copydist)
+);
+
 function copycname() {
   return gulp.src('CNAME').pipe(gulp.dest(PATHS.dist));
 }
@@ -66,12 +70,26 @@ function clean(done) {
   rimraf(PATHS.dist, done);
 }
 
+function cleanphp(done) {
+    rimraf(PATHS.distphp, done);
+  }
+
 // Copy files out of the assets folder
 // This task skips over the "img", "js", and "scss" folders, which are parsed separately
 function copy() {
   return gulp.src(PATHS.assets)
     .pipe(gulp.dest(PATHS.dist + '/assets'));
 }
+
+function copydist() {
+    return gulp.src(PATHS.dist + '/**/*')
+        .pipe(rename(function (path) {
+            if (path.extname == ".html" ) {
+                path.extname = ".php"
+            }
+        }))
+      .pipe(gulp.dest(PATHS.distphp));
+  }
 
 // Copy page templates into finished HTML files
 function pages() {

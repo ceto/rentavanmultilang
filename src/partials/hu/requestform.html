@@ -59,79 +59,30 @@
     </div>
     <div class="formstep">
         <h3 class="formstep__title">Válaszd ki a bérelni kívánt járművet!*</h3>
+        <?php $titer=0; ?>
         <ul class="checkergrid">
+        <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
+        <?php setup_postdata( $post ); ?>
             <li>
-                <label class="checkboxlabel" for="r_vehicle0">
-                    <input id="r_vehicle0" type="checkbox" name="r_vehicle[]" value="Furgon - Kompakt">
-                    Furgon - Kompakt
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
                 </label>
             </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        <?php while ($the_tariffs_2->have_posts()) : $the_tariffs_2->the_post();?>
+        <?php setup_postdata( $post ); ?>
             <li>
-                <label class="checkboxlabel" for="r_vehicle1">
-                    <input id="r_vehicle1" type="checkbox" name="r_vehicle[]" value="Furgon - Normál">
-                    Furgon - Normál
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
                 </label>
             </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle2">
-                    <input id="r_vehicle2" type="checkbox" name="r_vehicle[]" value="Elektromos furgon - Normál">
-                    Elektromos furgon - Normál
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle21">
-                    <input id="r_vehicle21" type="checkbox" name="r_vehicle[]" value="Billenőplatós tehergépkocsi">
-                    Billenőplatós tehergépkocsi
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle22">
-                    <input id="r_vehicle22" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 3,5t">
-                    Tehergépkocsi 3,5t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle3">
-                    <input id="r_vehicle3" type="checkbox" name="r_vehicle[]" value="Ponyvás tehergépkocsi 6,5-7,5t">
-                    Ponyvás tehergépkocsi 6,5-7,5t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle4">
-                    <input id="r_vehicle4" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 12t">
-                    Tehergépkocsi 12t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle5">
-                    <input id="r_vehicle5" type="checkbox" name="r_vehicle[]" value="Tehergépkocsi 14-18t">
-                    Tehergépkocsi 14-18t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle6">
-                    <input id="r_vehicle6" type="checkbox" name="r_vehicle[]" value="Hűtős furgon - Normál">
-                    Hűtős furgon - Normál
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle7">
-                    <input id="r_vehicle7" type="checkbox" name="r_vehicle[]" value="Hűtős tehergépkocsi 6,5-7,5t">
-                    Hűtős tehergépkocsi 6,5-7,5t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle71">
-                    <input id="r_vehicle71" type="checkbox" name="r_vehicle[]" value="Hűtős tehergépkocsi 12t">
-                    Hűtős tehergépkocsi 12t
-                </label>
-            </li>
-            <li>
-                <label class="checkboxlabel" for="r_vehicle8">
-                    <input id="r_vehicle8" type="checkbox" name="r_vehicle[]" value="Hűtős tehergépkocsi 18t">
-                    Hűtős tehergépkocsi 18t
-                </label>
-            </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
         </ul>
     </div>
 

@@ -109,61 +109,105 @@ layout: slovak
     <h4 class="text-center">Dodávky, vany a nákladné vozidlá.<br>Chladiarenské, plachtové a s boxom.</h4>
     <div class="pagewrap novpad">
 
+        <?php $titer = 0; ?>
+        <?php
+            $tgroup = 'dodavky-a-nakladne-auta';
+            $the_tariffs_1 = new WP_Query(array(
+                'post_type' => 'tariff',
+                'posts_per_page' => -1,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'post_status' => array('publish' ),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'tariffgroups',
+                        'field'    => 'slug',
+                        'terms'    => $tgroup,
+                    ),
+                )
+            ))
+        ?>
         <div class="prtbl" data-magellan>
             <div class="prtbl__rowhead topheader">
-                Dodávky a nákladné autá
+                <?= get_term_by('slug', $tgroup,'tariffgroups')->name; ?>
             </div>
-            <div class="prtbl__price topheader merged">Cena prenájmu<small>EUR + DPH/deň</small></div>
-            <div class="prtbl__price topheader">1-3 dni</div>
-            <div class="prtbl__price topheader">4-10 dní</div>
-            <div class="prtbl__price topheader">11-30 dní</div>
-            <div class="prtbl__price topheader">1-3 mesiace</div>
-            <div class="prtbl__price topheader">4-6 mesiacov</div>
-            <div class="prtbl__price topheader">7-12 mesiacov</div>
-
-            {{#each vehicles-sk}}
-            <div class="prtbl__rowhead">
-                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
-                <h3>{{name}}</h3>
-                <p>{{info}}</p>
+            <div class="prtbl__price topheader merged">
+                <?= term_description(get_term_by('slug', $tgroup,'tariffgroups')->term_id); ?>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 dni</span>{{1-3days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-10 dní</span>{{4-10days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">11-30 dní</span>{{11-30days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time4" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>{{1-3months}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time5" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-6 mesiacov</span>{{4-6months}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time6" data-action="Žiadosť o ponuku"><span class="mobilelabel">7-12 mesiacov</span>{{7-12months}}</a>
-            {{/each}}
+            <div class="prtbl__price topheader"><?= __('1-3 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('4-10 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('11-30 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('1-3 hónap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('4-6 hónap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('7-12 hónap', 'viarent'); ?></div>
+            <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
+                <?php setup_postdata( $post ); ?>
+                <div class="prtbl__rowhead">
+                    <?= svginsert(get_field('icon')); ?>
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_content(); ?>
+                </div>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time1" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('1-3 nap', 'viarent'); ?></span><?= get_field('rate-0') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time2" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4-10 nap', 'viarent'); ?></span><?= get_field('rate-1') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time3" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('11-30 nap', 'viarent'); ?></span><?= get_field('rate-2') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time4" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('1-3 hónap', 'viarent'); ?></span><?= get_field('rate-3') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time5" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4-6 hónap', 'viarent'); ?></span><?= get_field('rate-4') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time6" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('7-12 hónap', 'viarent'); ?></span><?= get_field('rate-5') ?></a>
+                <?php $titer++; ?>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php $the_tariffs_1->rewind_posts(); ?>
         </div>
         
-        <div class="prtbl">
+        <?php
+            $tgroup = 'chladiace-dodavky-a-nakladne-auta';
+            $the_tariffs_2 = new WP_Query(array(
+                'post_type' => 'tariff',
+                'posts_per_page' => -1,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'post_status' => array('publish' ),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'tariffgroups',
+                        'field'    => 'slug',
+                        'terms'    => $tgroup,
+                    ),
+                )
+            ))
+        ?>
+        <div class="prtbl" data-magellan>
             <div class="prtbl__rowhead topheader">
-                Chladiace dodávky a nákladné autá
+                <?= get_term_by('slug', $tgroup,'tariffgroups')->name; ?>
             </div>
-            <div class="prtbl__price topheader merged">Cena prenájmu<small>EUR + DPH/deň</small></div>
-            <div class="prtbl__price topheader">1-3 dni</div>
-            <div class="prtbl__price topheader">4-10 dní</div>
-            <div class="prtbl__price topheader">11-30 dní</div>
-            <div class="prtbl__price topheader">1-3 mesiace</div>
-            <div class="prtbl__price topheader">4-6 mesiacov</div>
-            <div class="prtbl__price topheader">7-12 mesiacov</div>
-
-            {{#each vehiclesfridge-sk}}
-            <div class="prtbl__rowhead">
-                <svg><use xlink:href="#icon-{{icon}}"></use></svg>
-                <h3>{{name}}</h3>
-                <p>{{info}}</p>
+            <div class="prtbl__price topheader merged">
+                <?= term_description(get_term_by('slug', $tgroup,'tariffgroups')->term_id); ?>
             </div>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time1" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 dni</span>{{1-3days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time2" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-10 dní</span>{{4-10days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time3" data-action="Žiadosť o ponuku"><span class="mobilelabel">11-30 dní</span>{{11-30days}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time4" data-action="Žiadosť o ponuku"><span class="mobilelabel">1-3 mesiace</span>{{1-3months}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time5" data-action="Žiadosť o ponuku"><span class="mobilelabel">4-6 mesiacov</span>{{4-6months}}</a>
-            <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle{{@key}}|r_time6" data-action="Žiadosť o ponuku"><span class="mobilelabel">7-12 mesiacov</span>{{7-12months}}</a>
-            {{/each}}
-
-
+            <div class="prtbl__price topheader"><?= __('1-3 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('4-10 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('11-30 nap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('1-3 hónap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('4-6 hónap', 'viarent'); ?></div>
+            <div class="prtbl__price topheader"><?= __('7-12 hónap', 'viarent'); ?></div>
+            <?php while ($the_tariffs_2->have_posts()) : $the_tariffs_2->the_post();?>
+                <?php setup_postdata( $post ); ?>
+                <div class="prtbl__rowhead">
+                    <?= svginsert(get_field('icon')); ?>
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_content(); ?>
+                </div>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time1" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('1-3 nap', 'viarent'); ?></span><?= get_field('rate-0') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time2" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4-10 nap', 'viarent'); ?></span><?= get_field('rate-1') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time3" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('11-30 nap', 'viarent'); ?></span><?= get_field('rate-2') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time4" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('1-3 hónap', 'viarent'); ?></span><?= get_field('rate-3') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time5" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('4-6 hónap', 'viarent'); ?></span><?= get_field('rate-4') ?></a>
+                <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehicle<?= $titer; ?>|r_time6" data-action="<?= __('Ajánlatkérés', 'viarent'); ?>"><span class="mobilelabel"><?= __('7-12 hónap', 'viarent'); ?></span><?= get_field('rate-5') ?></a>
+                <?php $titer++; ?>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php $the_tariffs_2->rewind_posts(); ?>
         </div>
+
 
         <p><strong>Hydraulické čelo</strong> mraziarenská verzia, skriňová verzia a dodávka s dlžkou L4 + 10 % k dennej cene prenájmu.
             <strong>Denný limit kilometrov:</strong> vozidlo do 3,5t – 200 km/deň; vozidlo nad 3,5t – 300 km/deň. Pri prekročení denného
