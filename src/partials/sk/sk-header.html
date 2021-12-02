@@ -23,7 +23,7 @@
                         {{> sk-topbarmenu }}
                     </ul>
                 </nav>
-                <div class="siteheader__topbar__actions"> Tel: <a href="tel:+421238113673">+421 2 381 1 3673</a></div>
+                <div class="siteheader__topbar__actions"> <?php _e('Tel', 'viarent'); ?>: <a href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>"><?php the_field('phone', 'option') ?></a></div>
             </div>
         </nav>
         <a href="{{#unlesspage 'index'}}{{root}}{{lang}}/{{/unlesspage}}#ajanlatkeres" class="siteheader__cta">

@@ -215,3 +215,14 @@ layout: english
         {{>en-requestform}}
     </div>
 </div>
+<section class="callpromo">
+    <div class="callpromo__inner">
+        <img src="{{root}}assets/img/content/callcenter.svg" alt="">
+        <div class="callpromo__content">
+            <h3>We will help you choose the right vehicle.</h3>
+            <h4>Call our rental consultant during business hours!</h4>
+            <p>Phone number: <a href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>"><?php the_field('phone', 'option') ?></a></p>
+        </div>
+    </div>
+</div>
+</section>

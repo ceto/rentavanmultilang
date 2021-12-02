@@ -262,3 +262,14 @@ lang: hu
         {{>requestform}}
     </div>
 </div>
+<section class="callpromo">
+    <div class="callpromo__inner">
+        <img src="{{root}}assets/img/content/callcenter.svg" alt="">
+        <div class="callpromo__content">
+            <h3>Segítünk a megfelelő jármű kiválasztásában.</h3>
+            <h4>Munkaidőben hívd bérleti tanácsadónkat!</h4>
+            <p>Telefonszámunk: <a href="tel:<?= preg_replace("/[^\+0-9]/", "", get_field('phone', 'option')); ?>"><?php the_field('phone', 'option') ?></a></p>
+        </div>
+    </div>
+</div>
+</section>
