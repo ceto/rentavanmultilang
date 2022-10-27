@@ -161,12 +161,20 @@ layout: english
             <a href="#ajanlatkeres" class="prtbl__price" data-target="r_vehiclef{{@key}}|r_time6" data-action="Ask for an offer"><span class="mobilelabel">7-12 months</span>{{7-12months}}</a>
             {{/each}}
         </div>
-        <p><strong>Other conditions:</strong> Rear lifting wall, freezer version, box version and L4 length van +25% extra fee/day.
+        <?php the_field('pricetable-retail-disclaimer', 'option'); ?>
+        <!-- <p><strong>Other conditions:</strong> Rear lifting wall, freezer version, box version and L4 length van +25% extra fee/day.
             <strong>Daily mileage:</strong> 3.5T 100 km. Over 3.5T 150 km. If you exceed the average mileage, we charge an additional fee of 0.11 EUR + VAT/km.
-            <strong>Deposit:</strong> Up to a total weight of 3.5 tons 300 EUR (gross), over a total weight of 3.5 tons 1100 EUR (gross). Valid from 1 August 2020.</p>
+            <strong>Deposit:</strong> Up to a total weight of 3.5 tons 300 EUR (gross), over a total weight of 3.5 tons 1100 EUR (gross). Valid from 1 August 2020.</p> -->
         <p>&nbsp;</p>
         <div class="text-center" data-magellan>
-            <a href="#ajanlatkeres" class="button large secondary">Ask for an offer</a> <a href="{{root}}assets/img/content/tarifatablazat-rentavan-en.pdf" target="_blank" class="button large tertiary">Tariffs [PDF, 278KB]</a>
+            <a href="#ajanlatkeres" class="button large secondary">Ask for an offer</a>
+            <?php if ( $pricefileid = get_field('pricetable-retail', 'option') ) : ?>
+                <?php $localfile=get_attached_file($pricefileid); ?>
+                <a download target="_blank" href="<?= wp_get_attachment_url($pricefileid)?>" class="button large tertiary">
+                    <?php _e('Tariffs', 'viarent'); ?> [<?= pathinfo($localfile, PATHINFO_EXTENSION); ?> | <?= size_format(filesize($localfile)) ?>]
+                </a>
+            <?php endif; ?>
+            <!-- <a href="{{root}}assets/img/content/tarifatablazat-rentavan-en.pdf" target="_blank" class="button large tertiary">Tariffs [PDF, 278KB]</a> -->
         </div>
     </div>
 </section>
