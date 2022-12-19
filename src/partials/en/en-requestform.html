@@ -59,23 +59,30 @@
     </div>
     <div class="formstep">
         <h3 class="formstep__title">Choose the vehicle you want to rent!*</h3>
+        <?php $titer=0; ?>
         <ul class="checkergrid">
-            {{#each vehicles-en}}
-                <li>
-                    <label class="checkboxlabel" for="r_vehicle{{@key}}">
-                        <input id="r_vehicle{{@key}}" type="checkbox" name="r_vehicle[]" value="{{name}}">
-                        {{name}}
-                    </label>
-                </li>
-            {{/each}}
-            {{#each vehiclesfridge-en}}
-                <li>
-                    <label class="checkboxlabel" for="r_vehiclef{{@key}}">
-                        <input id="r_vehiclef{{@key}}" type="checkbox" name="r_vehicle[]" value="{{name}}">
-                        {{name}}
-                    </label>
-                </li>
-            {{/each}}
+        <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
+        <?php setup_postdata( $post ); ?>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                </label>
+            </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        <?php while ($the_tariffs_2->have_posts()) : $the_tariffs_2->the_post();?>
+        <?php setup_postdata( $post ); ?>
+            <li>
+                <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <?php the_title(); ?>
+                </label>
+            </li>
+            <?php $titer++; ?>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
         </ul>
     </div>
 
