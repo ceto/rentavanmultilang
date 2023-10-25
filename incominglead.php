@@ -58,6 +58,10 @@
         'time' => array (
             'label' => __('Bérlés időtartama', 'viarent'),
             'value' => '',
+        ),
+        'audiencesource' => array (
+            'label' => __('Honnan hallottál rólunk?', 'viarent'),
+            'value' => '',
         )
     );
 ?>
@@ -84,6 +88,7 @@
     $data['time']['value'] = filter_var($_POST["time"], FILTER_SANITIZE_STRING);
     $data['acceptgdpr']['value'] = filter_var($_POST["acceptgdpr"], FILTER_SANITIZE_STRING);
     $data['acceptmarketing']['value'] = filter_var($_POST["acceptmarketing"], FILTER_SANITIZE_STRING);
+    $data['audiencesource']['value'] = filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING);
 
 
     $data['message']['value'] = filter_var($_POST["message"], FILTER_SANITIZE_STRING);

@@ -136,6 +136,9 @@ $(".reqform").on("submit", function(ev, frm) {
     var user_acceptgdpr = $("input[name=r_acceptgdpr]").is(":checked")?1:0;
     var user_acceptmarketing = $("input[name=r_acceptmarketing]").is(":checked")?1:0;
 
+    var user_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').val():'-';
+
+
     var user_vehicle= '';
     var user_vehiclearray = [];
     $.each($('input[name="r_vehicle[]"]:checked'), function(){
@@ -169,6 +172,7 @@ $(".reqform").on("submit", function(ev, frm) {
             acceptgdpr: user_acceptgdpr,
             acceptmarketing: user_acceptmarketing,
             time: user_time,
+            audiencesource: user_audiencesource,
             vehicle: user_vehicle
         };
         $(".reqformsubmit").addClass("disabled");

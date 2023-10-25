@@ -1,3 +1,4 @@
+<?php global $theaudiencesources; ?>
 <form id="reqform" class="viaform reqform" method="post" action="../rentavan/incominglead.php" data-abide novalidate>
     <div class="formstep">    
         <ul class="inputgrid wider">
@@ -125,6 +126,19 @@
                     7-12 mesiacov
                 </label>
             </li>
+        </ul>
+    </div>
+    <div class="formstep">
+        <h3 class="formstep__title">Odkud jsi se o nás dozvěděl/a?</h3>
+        <ul class="checkergrid">
+            <?php foreach( $theaudiencesources as $key => $topic ) : ?>
+                <li>
+                    <label class="checkboxlabel" for="r-audiencescore-<?= $key; ?>">
+                        <input id="r-audiencescore-<?= $key; ?>" type="radio" name="r_audiencesource" value="<?= __($topic,'viarent'); ?>" >
+                        <?= __($topic,'viarent'); ?>
+                    </label>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <div class="formstep">
