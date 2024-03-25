@@ -4,27 +4,6 @@
 ?>
 
 <?php
-    // SAP API
-    define("SAP_API_CLIENT_ACTIVATED", get_option('options_SAP_API_CLIENT_ACTIVATED'));
-    define("SAP_URL", get_option('options_SAP_URL'));
-    define("SAP_USER", get_option('options_SAP_USER'));
-    define("SAP_PASSWORD", get_option('options_SAP_PASSWORD'));
-
-    use SaintSystems\OData\ODataClient;
-
-    $sapsyncisactive = (SAP_API_CLIENT_ACTIVATED==1)?true:false;
-
-    if ($sapsyncisactive) {
-        $odataClient = new ODataClient(SAP_URL, function($request) {
-            $username = SAP_USER;
-            $password = SAP_PASSWORD;
-            $request->headers['Authorization'] = 'Basic '.base64_encode($username.':'.$password);
-        });
-    }
-?>
-
-
-<?php
     $to_email = get_field('r_email', 'option');
     $bcc_email = get_field('bcc_email', 'option');
 
@@ -192,6 +171,7 @@
             'ContactPhone' => $data['tel']['value'],
             'ContactNote' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['audiencesource']['value']."\r\n\n".$data['message']['value'],
             // 'Company' => $data['company']['value'],
+            'Company' => 'n/a',
             'AccountCountry' => $data['countrycode']['value'],
             "AccountCity" => $data['city']['value'],
             'AccountPostalAddressElementsStreetName' => $data['address']['value'],
