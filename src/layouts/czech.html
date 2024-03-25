@@ -23,6 +23,17 @@
     {{> footer}}
     {{> cz-mobilenavpanel }}
     {{> bottombar }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.5.3/js/intlTelInput.min.js"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var viamobileappglobals = {
+            "root_uri" : "{{root}}",
+            "messages" : {
+                'missingField' : "<?php _e('Hiányzó kötelező mező. Ellenőrizze a megadott adatokat.', 'viarent'); ?>"
+            }
+        };
+        /* ]]> */
+    </script>
     <script src="{{root}}assets/js/app.js"></script>
     {{> iconsprite }}
 </body>
