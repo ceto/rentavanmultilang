@@ -31,6 +31,15 @@ label {
     color:$cl-gray;
 }
 
+.iti {
+    width:100%;
+}
+.iti:has(input:focus) + .fauxplaceholder {
+    padding-left: 52px;
+    display: block;
+}
+
+
 select {
     width:100%;
     margin:0;

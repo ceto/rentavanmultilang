@@ -27,6 +27,10 @@
             'label' => __('Telefon', 'viarent'),
             'value' => '',
         ),
+        'countrycode' => array (
+            'label' => __('Ország kód', 'viarent'),
+            'value' => '',
+        ),
         'city' => array (
             'label' => __('Település', 'viarent'),
             'value' => '',
@@ -81,6 +85,7 @@
     $data['name']['value'] = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
     $data['email']['value'] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $data['tel']['value'] = filter_var($_POST["tel"], FILTER_SANITIZE_STRING);
+    $data['countrycode']['value'] = strtoupper(filter_var($_POST["countrycode"], FILTER_SANITIZE_STRING));
     $data['address']['value'] = filter_var($_POST["address"], FILTER_SANITIZE_STRING);
     $data['city']['value'] = filter_var($_POST["city"], FILTER_SANITIZE_STRING);
     $data['zip']['value'] = filter_var($_POST["zip"], FILTER_SANITIZE_STRING);
@@ -152,6 +157,47 @@
             'ID' => $leadid,
             'post_title' => __('Rövidtávú ajánlatkérés', 'viarent').' / '.$data['name']['value'].' #'.$leadid
         ));
+    }
+?>
+
+<?php
+    if ($sapsyncisactive) {
+        $home_url = parse_url(esc_url(home_url('/')));
+        $domain = $home_url['host'];
+        $sapdata = [
+            'Name' => __('Retail rental quote', 'via').' ['.$domain.']',
+            // 'ContactFirstName' =>  $data['name']['value'],
+            'ContactLastName' => $data['name']['value'],
+            'ContactEMail' => $data['email']['value'],
+            'ContactPhone' => $data['tel']['value'],
+            'ContactNote' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['audiencesource']['value']."\r\n\n".$data['message']['value'],
+            // 'Company' => $data['company']['value'],
+            'AccountCountry' => $data['countrycode']['value'],
+            "AccountCity" => $data['city']['value'],
+            'AccountPostalAddressElementsStreetName' => $data['address']['value'],
+            'AccountPostalAddressElementsStreetPostalCode' => $data['zip']['value'],
+            "LeadSource_KUT" => '121'
+        ];
+
+        try {
+            $saplead =  $odataClient->post('LeadCollection', $sapdata);
+            $output = json_encode(array(
+                'type'=> 'success',
+                'text' => __('SAP lead added successfully!','gls'),
+                'data' => $saplead
+            ));
+            $incominghtmlcontent.=__('SAP lead added successfully!','gls').'<br><hr><br>';
+        } catch (Exception $e) {
+            $output = json_encode(array(
+                'type'=>'error',
+                'text' => __('SAP sync error occured!','gls'),
+                'data' => $e->getMessage()
+            ));
+            $incominghtmlcontent.=$e->getMessage().'<br><hr><br>';
+        }
+
+        /* debug die */
+        // die($output);
     }
 ?>
 

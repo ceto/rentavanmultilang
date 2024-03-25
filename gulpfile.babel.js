@@ -23,6 +23,8 @@ import svgstore     from 'gulp-svgstore';
 import svgmin       from 'gulp-svgmin';
 import inject       from 'gulp-inject';
 
+import flatten       from 'gulp-flatten';
+
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -40,7 +42,7 @@ function loadConfig() {
 // Build the "dist" folder by running all of the below tasks
 // Sass must be run later so UnCSS can search for used classes in the others assets.
 gulp.task('build',
- gulp.series(clean, gulp.parallel(pages, javascript, images, copy), sass, svgicons));
+ gulp.series(clean, gulp.parallel(pages, javascript, images, copy, vendorscripts), sass, svgicons));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -54,6 +56,13 @@ gulp.task('deploy',
 gulp.task('phpbuild',
   gulp.series('build', cleanphp, copydist)
 );
+
+function vendorscripts() {
+    return gulp.src(PATHS.jsaddons)
+      .pipe(flatten())
+      .pipe(gulp.dest(PATHS.dist + '/assets/js/vendor'))
+      .pipe(browser.reload({ stream: true }));
+};
 
 function copycname() {
   return gulp.src('CNAME').pipe(gulp.dest(PATHS.dist));

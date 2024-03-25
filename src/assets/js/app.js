@@ -2,6 +2,8 @@ import $ from 'jquery';
 import 'what-input';
 import Headroom from "headroom.js";
 
+import "intl-tel-input";
+
 // Foundation JS relies on a global variable. In ES6, all imports are hoisted
 // to the top of the file so if we used `import` to import Foundation,
 // it would execute earlier than we have assigned the global variable.
@@ -9,6 +11,21 @@ import Headroom from "headroom.js";
 // have the hoisting behavior.
 window.jQuery = $;
 require('foundation-sites');
+
+
+
+function viaTelValidator( $el, required, parent ) {
+    var value = $el.val().trim();
+    var valid = false;
+    if (required) {
+        valid = ities[$el.attr('data-intl-tel-input-id')].isPossibleNumber();
+    } else {
+        valid = ((value==='') || ities[$el.attr('data-intl-tel-input-id')].isPossibleNumber());
+    }
+    return valid;
+
+}
+Foundation.Abide.defaults.validators.telvalidator = viaTelValidator;
 
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
@@ -121,12 +138,17 @@ $('.js-allclose').on('click', function(e) {
 
 $(".reqform").on("submit", function(ev, frm) {
     ev.preventDefault();
-
-
+})
+.on("forminvalid.zf.abide", function(ev, frm) {
+    var output = '<p class="itsnotok">' + viamobileappglobals.messages.missingField + '</p>';
+    $("#reqformresult").hide().html(output).slideDown();
+})
+.on("formvalid.zf.abide", function(ev, frm) {
     //get input field values
     var user_name = $("input[name=r_name]").val();
     var user_email = $("input[name=r_email]").val();
-    var user_tel = $("input[name=r_tel]").val();
+    var user_tel = ities[$("input[name=r_tel]").attr('data-intl-tel-input-id')].getNumber(); //var user_tel = $("input[name=r_tel]").val();
+    var user_countrycode = ities[$("input[name=r_tel]").attr('data-intl-tel-input-id')].getSelectedCountryData().iso2;
     var user_zip = $("input[name=r_zip]").val();
     var user_city = $("input[name=r_city]").val();
     var user_address = $("input[name=r_address]").val();
@@ -233,4 +255,22 @@ $('a.prtbl__price').on('click', function(e) {
     var time = fields[1];
     $('#' + vehicle).prop( "checked", true );
     $('#' + time).prop( "checked", true );
+});
+
+
+var itiErrorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+var ities = [];
+
+$('input[name="r_tel"]').each(function (index, element) {
+    ities[index] = window.intlTelInput(element, {
+        preferredCountries: ["hu", "sk", "cz", "rs", "ro", "fr", "at" ],
+        initialCountry: "auto",
+        geoIpLookup: function(callback) {
+            fetch("https://ipapi.co/json")
+            .then(function(res) { return res.json(); })
+            .then(function(data) { callback(data.country_code); })
+            .catch(function() { callback("us"); });
+        },
+        utilsScript: viamobileappglobals.root_uri + 'assets/js/vendor/utils.js'
+    });
 });

@@ -13,6 +13,7 @@
   "dependencies": {
     "foundation-sites": "^6.6.0",
     "headroom.js": "^0.12.0",
+    "intl-tel-input": "^18.5.3",
     "jquery": "^3.2.1",
     "motion-ui": "^2.0.3",
     "slick-carousel": "^1.8.1",
@@ -32,6 +33,7 @@
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.5.2",
     "gulp-extname": "^0.2.0",
+    "gulp-flatten": "^0.4.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^5.0.5",
