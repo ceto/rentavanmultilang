@@ -85,7 +85,8 @@
         die($output);
     }
 
-    $data['name']['value'] = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+    $data['fname']['value'] = filter_var($_POST["fname"], FILTER_SANITIZE_STRING);
+    $data['lname']['value'] = filter_var($_POST["lname"], FILTER_SANITIZE_STRING);
     $data['email']['value'] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $data['tel']['value'] = filter_var($_POST["tel"], FILTER_SANITIZE_STRING);
     $data['countrycode']['value'] = strtoupper(filter_var($_POST["countrycode"], FILTER_SANITIZE_STRING));
