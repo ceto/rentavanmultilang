@@ -80,7 +80,7 @@
         die($output);
     }
 
-    if( (strlen($_POST["name"]) < 2) || (strlen($_POST["email"]) < 2) || (strlen($_POST["tel"]) < 2) || (strlen($_POST["address"]) < 2) || (strlen($_POST["zip"]) < 2) || (strlen($_POST["city"]) < 2) ) {
+    if( (strlen($_POST["fname"]) < 2) || (strlen($_POST["lname"]) < 2) || (strlen($_POST["email"]) < 2) || (strlen($_POST["tel"]) < 2) || (strlen($_POST["address"]) < 2) || (strlen($_POST["zip"]) < 2) || (strlen($_POST["city"]) < 2) ) {
         $output = json_encode(array('type'=>'error', 'text' => __('Hiányzó kötelező mező. Ellenőrizze a megadott adatokat.','viarent') ));
         die($output);
     }
