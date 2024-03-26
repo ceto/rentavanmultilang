@@ -4,13 +4,34 @@
         <ul class="inputgrid wider">
             <li>
                 <h3 class="formstep__title">Osobné údaje</h3>
-                <ul class="inputgrid">
-                    <li class="full">
+                <ul class="inputgrid twocolumns">
+                    <?php if (viarent_countrycode() == 'HU') : ?>
+                    <li>
                         <label>
-                            <input type="text" placeholder="Meno*" required name="r_name">
-                            <span class="fauxplaceholder">Meno*</span>
+                            <input type="text" value="" placeholder="<?= __('Vezetéknév', 'viarent'); ?>*" required id="r_lname" name="r_lname">
+                            <span class="fauxplaceholder"><?= __('Vezetéknév', 'viarent'); ?>*</span>
                         </label>
                     </li>
+                    <li>
+                        <label>
+                            <input type="text" value="" placeholder="<?= __('Keresztnév', 'viarent'); ?>*" required id="r_fname" name="r_fname">
+                            <span class="fauxplaceholder"><?= __('Keresztnév', 'viarent'); ?>*</span>
+                        </label>
+                    </li>
+                    <?php else : ?>
+                    <li>
+                        <label>
+                            <input type="text" value="" placeholder="<?= __('Keresztnév', 'viarent'); ?>*" required id="r_fname" name="r_fname">
+                            <span class="fauxplaceholder"><?= __('Keresztnév', 'viarent'); ?>*</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="text" value="" placeholder="<?= __('Vezetéknév', 'viarent'); ?>*" required id="r_lname" name="r_lname">
+                            <span class="fauxplaceholder"><?= __('Vezetéknév', 'viarent'); ?>*</span>
+                        </label>
+                    </li>
+                    <?php endif; ?>
                     <li>
                         <label>
                             <input type="email" placeholder="E-mail adresa*" pattern="email" required name="r_email">

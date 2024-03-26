@@ -145,7 +145,8 @@ $(".reqform").on("submit", function(ev, frm) {
 })
 .on("formvalid.zf.abide", function(ev, frm) {
     //get input field values
-    var user_name = $("input[name=r_name]").val();
+    var user_fname = $("input[name=r_fname]").val();
+    var user_lname = $("input[name=r_lname]").val();
     var user_email = $("input[name=r_email]").val();
     var user_tel = ities[$("input[name=r_tel]").attr('data-intl-tel-input-id')].getNumber(); //var user_tel = $("input[name=r_tel]").val();
     var user_countrycode = ities[$("input[name=r_tel]").attr('data-intl-tel-input-id')].getSelectedCountryData().iso2;
@@ -184,7 +185,8 @@ $(".reqform").on("submit", function(ev, frm) {
     if (proceed) {
         //data to be sent to server
         var post_data = {
-            name: user_name,
+            fname: user_fname,
+            lname: user_lname,
             email: user_email,
             tel: user_tel,
             zip: user_zip,

@@ -14,8 +14,12 @@
     $respsubject = __('Köszönjük ajánlatkérésedet, megkaptuk, hamarosan jelentkezünk - VIARENT.', 'viarent');
 
     $data = array(
-        'name' => array (
-            'label' => __('Név', 'viarent'),
+        'fname' => array (
+            'label' => __('Keresztnév', 'viarent'),
+            'value' => '',
+        ),
+        'lname' => array (
+            'label' => __('Vezetéknév', 'viarent'),
             'value' => '',
         ),
         'email' => array (
@@ -100,7 +104,7 @@
     $data['message']['value'] = str_replace("\&#39;", "'", $data['message']['value']);
     $data['message']['value'] = str_replace("&#39;", "'", $data['message']['value']);
 
-    if(strlen($data['name']['value'])<4) {
+    if ((strlen($data['fname']['value'])<3) || (strlen($data['lname']['value'])<3)) {
         $output = json_encode(array('type'=>'error', 'text' => __('Teljes név megadása kötelező!','viarent') ));
         die($output);
     }
@@ -165,8 +169,8 @@
         $domain = $home_url['host'];
         $sapdata = [
             'Name' => __('Retail rental quote', 'via').' ['.$domain.']',
-            // 'ContactFirstName' =>  $data['name']['value'],
-            'ContactLastName' => $data['name']['value'],
+            'ContactFirstName' =>  $data['fname']['value'],
+            'ContactLastName' => $data['lname']['value'],
             'ContactEMail' => $data['email']['value'],
             'ContactPhone' => $data['tel']['value'],
             'ContactNote' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['audiencesource']['value']."\r\n\n".$data['message']['value'],
