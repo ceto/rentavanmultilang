@@ -175,7 +175,6 @@
             'ContactEMail' => $data['email']['value'],
             'ContactPhone' => $data['tel']['value'],
             'ContactNote' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['audiencesource']['value']."\r\n\n".$data['message']['value'],
-            // 'Company' => $data['company']['value'],
             'Company' => 'n/a',
             'AccountCountry' => $data['countrycode']['value'],
             "AccountCity" => $data['city']['value'],

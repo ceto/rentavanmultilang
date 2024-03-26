@@ -189,6 +189,7 @@ $(".reqform").on("submit", function(ev, frm) {
             lname: user_lname,
             email: user_email,
             tel: user_tel,
+            countrycode: user_countrycode,
             zip: user_zip,
             city: user_city,
             address: user_address,
