@@ -165,7 +165,7 @@
 ?>
 
 <?php
-    if ($sapsyncisactive) {
+    if (FALSE && $sapsyncisactive) {
         $home_url = parse_url(esc_url(home_url('/')));
         $domain = $home_url['host'];
         $sapdata = [
