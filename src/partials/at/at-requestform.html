@@ -122,16 +122,15 @@
             <li></li>
         </ul>
     </div>
-
     <div class="formstep">
-                <label class="checkboxlabel small" for="r_acceptgdpr">
-                    <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
-                    Az ajánlatkérő adatlap kitöltésével elfogadom az <a href="https://viarent.hu/adatkezelesi-tajekoztato/" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat.
-                </label>
-                <label class="checkboxlabel small" for="r_acceptmarketing">
-                    <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
-                    Hozzájárulok a kereskedelmi és marketing célú megkeresésekhez
-                </label>
+        <label class="checkboxlabel small" for="r_acceptgdpr">
+            <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
+            <?php printf(__('Elfogadom az <a href="%s" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat.', 'viarent'), get_privacy_policy_url()); ?>
+        </label>
+        <label class="checkboxlabel small" for="r_acceptmarketing">
+            <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
+            <?= __('Hozzájárulok a kereskedelmi és marketing célú megkeresésekhez.', 'viarent'); ?>
+        </label>
     </div>
     <input type="hidden" name="r_human" value="2">
     <div class="formactions">

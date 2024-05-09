@@ -3,7 +3,7 @@
     <div class="formstep">    
         <ul class="inputgrid wider">
             <li>
-                <h3 class="formstep__title">Osobné údaje</h3>
+                <h3 class="formstep__title">OSOBNÍ ÚDAJE</h3>
                 <ul class="inputgrid twocolumns">
                     <?php if (viarent_countrycode() == 'HU') : ?>
                     <li>
@@ -80,7 +80,7 @@
         </ul>
     </div>
     <div class="formstep">
-        <h3 class="formstep__title">Vyber si vozidlo, ktoré si chceš prenajať*</h3>
+        <h3 class="formstep__title">VYBERTE VOZIDLO, KTERÉ SI CHCETE PRONAJMOUT!*</h3>
         <?php $titer=0; ?>
         <ul class="checkergrid">
         <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
@@ -109,7 +109,7 @@
     </div>
 
     <div class="formstep">
-        <h3 class="formstep__title">Na ako dlho si chcete prenajať vozidlo?*</h3>
+        <h3 class="formstep__title">NA JAK DLOUHO SI CHCETE VOZIDLO PRONAJMOUT?*</h3>
         <ul class="checkergrid">
             <li>
                 <label class="checkboxlabel" for="r_time1">
@@ -150,7 +150,7 @@
         </ul>
     </div>
     <div class="formstep">
-        <h3 class="formstep__title">Odkud jsi se o nás dozvěděl/a?</h3>
+        <h3 class="formstep__title">JAK JSTE SE O NÁS DOZVĚDĚLI?</h3>
         <ul class="checkergrid">
             <?php foreach( $theaudiencesources as $key => $topic ) : ?>
                 <li>
@@ -164,14 +164,14 @@
         </ul>
     </div>
     <div class="formstep">
-                <label class="checkboxlabel small" for="r_acceptgdpr">
-                    <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
-                    Vyplnením formulára prijímam obsah <a href="https://skdev.viarent.hu/zasady-ochrany-osobnych-udajov/" target="_blank"> informácií o správe údajov.</a>
-                </label>
-                <label class="checkboxlabel small" for="r_acceptmarketing">
-                    <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
-                    Súhlasím s ponukami na obchodné a marketingové účely
-                </label>
+        <label class="checkboxlabel small" for="r_acceptgdpr">
+            <input id="r_acceptgdpr" type="checkbox" name="r_acceptgdpr" required>
+            <?php printf(__('Elfogadom az <a href="%s" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat.', 'viarent'), get_privacy_policy_url()); ?>
+        </label>
+        <label class="checkboxlabel small" for="r_acceptmarketing">
+            <input id="r_acceptmarketing" type="checkbox" name="r_acceptmarketing">
+            <?= __('Hozzájárulok a kereskedelmi és marketing célú megkeresésekhez.', 'viarent'); ?>
+        </label>
     </div>
     <input type="hidden" name="r_human" value="2">
     <div class="formactions">
