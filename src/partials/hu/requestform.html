@@ -114,7 +114,7 @@
             <?php foreach( $theaudiencesources as $key => $topic ) : ?>
                 <li>
                     <label class="checkboxlabel" for="r-audiencescore-<?= $key; ?>">
-                        <input id="r-audiencescore-<?= $key; ?>" type="radio" name="r_audiencesource" value="<?= __($topic,'viarent'); ?>" >
+                        <input id="r-audiencescore-<?= $key; ?>" type="radio" name="r_audiencesource" value="<?= $key; ?>" data-sap-id="<?= explode('_', $key)[0]?>" >
                         <?= __($topic,'viarent'); ?>
                     </label>
                 </li>

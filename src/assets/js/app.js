@@ -159,7 +159,9 @@ $(".reqform").on("submit", function(ev, frm) {
     var user_acceptgdpr = $("input[name=r_acceptgdpr]").is(":checked")?1:0;
     var user_acceptmarketing = $("input[name=r_acceptmarketing]").is(":checked")?1:0;
 
-    var user_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').val():'-';
+    // var user_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').val():'-';
+    var user_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').attr('value'):'181_unset';
+    var user_sap_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').attr('data-sap-id'):'181';
 
 
     var user_vehicle= '';
@@ -170,12 +172,20 @@ $(".reqform").on("submit", function(ev, frm) {
     var user_sapvehiclecategoryarray = [];
     $.each($('input[name="r_vehicle[]"]:checked'), function(){
         user_vehiclearray.push($(this).val());
-        user_sapvehiclenaturearray.push($(this).attr('data-sapvehiclenature'));
-        user_sapvehiclecategoryarray.push($(this).attr('data-sapvehiclecategory'));
+
+        var vn = $(this).attr('data-sapvehiclenature');
+        if (!user_sapvehiclenaturearray.includes(vn)) {
+            user_sapvehiclenaturearray.push(vn);
+        }
+
+        var vc = $(this).attr('data-sapvehiclecategory')
+        if (!user_sapvehiclecategoryarray.includes(vc)) {
+            user_sapvehiclecategoryarray.push(vc);
+        }
     });
-    user_vehicle+=user_vehiclearray.join(' | ');
-    user_sap_VehicleNature+=user_sapvehiclenaturearray.join(', ');
-    user_sap_VehicleCategory+=user_sapvehiclecategoryarray.join(', ');
+    user_vehicle=user_vehiclearray.join(' | ');
+    user_sap_VehicleNature=user_sapvehiclenaturearray.join(', ');
+    user_sap_VehicleCategory=user_sapvehiclecategoryarray.join(', ');
 
     var user_time= '';
     var user_renttime = [];
@@ -209,6 +219,7 @@ $(".reqform").on("submit", function(ev, frm) {
             time: user_time,
             audiencesource: user_audiencesource,
             vehicle: user_vehicle,
+            sap_audiencesource: user_sap_audiencesource,
             sap_VehicleNature: user_sap_VehicleNature,
             sap_VehicleCategory: user_sap_VehicleCategory
         };

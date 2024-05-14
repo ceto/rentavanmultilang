@@ -97,13 +97,19 @@
     $data['time']['value'] = filter_var($_POST["time"], FILTER_SANITIZE_STRING);
     $data['acceptgdpr']['value'] = filter_var($_POST["acceptgdpr"], FILTER_SANITIZE_STRING);
     $data['acceptmarketing']['value'] = filter_var($_POST["acceptmarketing"], FILTER_SANITIZE_STRING);
-    $data['audiencesource']['value'] = filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING);
+    $data['audiencesource']['value'] = $theaudiencesources[filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING)];
+    $audiencesourceid = explode('_', filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING))[0];
+
 
 
     $data['message']['value'] = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
 
     $data['message']['value'] = str_replace("\&#39;", "'", $data['message']['value']);
     $data['message']['value'] = str_replace("&#39;", "'", $data['message']['value']);
+    
+    $sap_audiencesource = filter_var($_POST["sap_audiencesource"], FILTER_SANITIZE_STRING);
+    $sap_VehicleCategory = filter_var($_POST["sap_VehicleCategory"], FILTER_SANITIZE_STRING);
+    $sap_VehicleNature = filter_var($_POST["sap_VehicleNature"], FILTER_SANITIZE_STRING);
 
     if ((strlen($data['fname']['value'])<3) || (strlen($data['lname']['value'])<3)) {
         $output = json_encode(array('type'=>'error', 'text' => __('Teljes név megadása kötelező!','viarent') ));
@@ -165,7 +171,7 @@
 ?>
 
 <?php
-    if (FALSE && $sapsyncisactive) {
+    if ($sapsyncisactive) {
         $home_url = parse_url(esc_url(home_url('/')));
         $domain = $home_url['host'];
         $sapdata = [
@@ -180,7 +186,12 @@
             "AccountCity" => $data['city']['value'],
             'AccountPostalAddressElementsStreetName' => $data['address']['value'],
             'AccountPostalAddressElementsStreetPostalCode' => $data['zip']['value'],
-            "LeadSource_KUT" => '121'
+            "LeadSource_KUT" => '121',
+            'LeadSocialSource_KUT' => $audiencesourceid,
+            "Vehiclewebpage_KUT" => $_SERVER['HTTP_REFERER'],
+            'PeriodText_KUT' =>  'short',
+            'VehicleCategory_KUT' =>  $sap_VehicleCategory,
+            'VehicleNature_KUT' =>  $sap_VehicleNature
         ];
 
         try {
