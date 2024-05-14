@@ -87,7 +87,7 @@
         <?php setup_postdata( $post ); ?>
             <li>
                 <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
-                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" data-sapvehiclecategory="<?php the_field('sap_VehicleCategory'); ?>" data-sapvehiclenature="<?php the_field('sap_VehicleNature'); ?>" value="<?php the_title(); ?>">
                     <?php the_title(); ?>
                 </label>
             </li>
@@ -98,7 +98,7 @@
         <?php setup_postdata( $post ); ?>
             <li>
                 <label class="checkboxlabel" for="r_vehicle<?= $titer; ?>">
-                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" value="<?php the_title(); ?>">
+                    <input id="r_vehicle<?= $titer; ?>" type="checkbox" name="r_vehicle[]" data-sapvehiclecategory="<?php the_field('sap_VehicleCategory'); ?>" data-sapvehiclenature="<?php the_field('sap_VehicleNature'); ?>" value="<?php the_title(); ?>">
                     <?php the_title(); ?>
                 </label>
             </li>
