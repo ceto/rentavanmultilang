@@ -175,7 +175,7 @@ $(".reqform").on("submit", function(ev, frm) {
     });
     user_vehicle+=user_vehiclearray.join(' | ');
     user_sap_VehicleNature+=user_sapvehiclenaturearray.join(', ');
-    user_sapvehiclecategoryarray+=user_sapvehiclecategoryarray.join(', ');
+    user_sap_VehicleCategory+=user_sapvehiclecategoryarray.join(', ');
 
     var user_time= '';
     var user_renttime = [];
