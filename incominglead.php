@@ -180,7 +180,7 @@
             'IndividualCustomerFamilyName' => $data['lname']['value'],
             'IndividualCustomerEMail' => $data['email']['value'],
             'IndividualCustomerPhone' => $data['tel']['value'],
-            'ContactNote' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['message']['value'],
+            'Note' => $data['vehicle']['value']."\r\n".$data['time']['value']."\r\n\n".$data['message']['value'],
             'IndividualCustomerAddressCountry' => $data['countrycode']['value'],
             'IndividualCustomerAddressCity' => $data['city']['value'],
             'IndividualCustomerAddressStreetName' => $data['address']['value'],
@@ -190,7 +190,6 @@
             'WhichCompany_KUT' => '111', //Viarent
             'LeadSocialSource_KUT' => $audiencesourceid,
             'Vehiclewebpage_KUT' => $_SERVER['HTTP_REFERER'],
-            'Productname_KUT' => $data['vehicle']['value'],
             'PeriodText_KUT' =>  'short',
             'VehicleCategory_KUT' =>  $sap_VehicleCategory,
             'VehicleNature_KUT' =>  $sap_VehicleNature
