@@ -185,10 +185,11 @@
             'IndividualCustomerAddressCity' => $data['city']['value'],
             'IndividualCustomerAddressStreetName' => $data['address']['value'],
             'IndividualCustomerAddressPostalCode' => $data['zip']['value'],
-            "LeadSource_KUT" => '121',
+            'LeadSource_KUT' => '121',
             'WhichCompany_KUT' => '111', //Viarent
             'LeadSocialSource_KUT' => $audiencesourceid,
-            "Vehiclewebpage_KUT" => $_SERVER['HTTP_REFERER'],
+            'Vehiclewebpage_KUT' => $_SERVER['HTTP_REFERER'],
+            'Productname_KUT' => $data['vehicle']['value'],
             'PeriodText_KUT' =>  'short',
             'VehicleCategory_KUT' =>  $sap_VehicleCategory,
             'VehicleNature_KUT' =>  $sap_VehicleNature
