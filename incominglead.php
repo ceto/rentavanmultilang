@@ -190,9 +190,10 @@
             'WhichCompany_KUT' => '111', //Viarent
             'LeadSocialSource_KUT' => $audiencesourceid,
             'Vehiclewebpage_KUT' => $_SERVER['HTTP_REFERER'],
-            // 'PeriodText_KUT' =>  'short',
             'VehicleCategory_KUT' =>  $sap_VehicleCategory,
-            'VehicleNature_KUT' =>  $sap_VehicleNature
+            'VehicleNature_KUT' =>  $sap_VehicleNature,
+            'IndividualCustomerContactAllowedCode' => ($data['acceptmarketing']['value']==1)?'1':'2'
+            
         ];
 
         try {
