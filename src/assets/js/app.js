@@ -178,7 +178,7 @@ $(".reqform").on("submit", function(ev, frm) {
             user_sapvehiclenaturearray.push(vn);
         }
 
-        var vc = $(this).attr('data-sapvehiclecategory')
+        var vc = $(this).attr('data-sapvehiclecategory');
         if (!user_sapvehiclecategoryarray.includes(vc)) {
             user_sapvehiclecategoryarray.push(vc);
         }
