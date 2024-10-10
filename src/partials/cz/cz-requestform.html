@@ -3,7 +3,7 @@
     <div class="formstep">    
         <ul class="inputgrid wider">
             <li>
-                <h3 class="formstep__title">OSOBNÍ ÚDAJE</h3>
+                <h3 class="formstep__title">Osobní údaje</h3>
                 <ul class="inputgrid twocolumns">
                     <?php if (viarent_countrycode() == 'HU') : ?>
                     <li>
@@ -34,14 +34,14 @@
                     <?php endif; ?>
                     <li>
                         <label>
-                            <input type="email" placeholder="E-mail adresa*" pattern="email" required name="r_email">
-                            <span class="fauxplaceholder">E-mail adresa*</span>
+                            <input type="email" placeholder="E-mailová adresa*" pattern="email" required name="r_email">
+                            <span class="fauxplaceholder">E-mailová adresa*</span>
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input type="text" placeholder="Telefónne číslo*" required name="r_tel" data-validator="telvalidator">
-                            <span class="fauxplaceholder">Telefónne číslo*</span>
+                            <input type="text" placeholder="Telefonní číslo*" required name="r_tel" data-validator="telvalidator">
+                            <span class="fauxplaceholder">Telefonní číslo*</span>
                         </label>
                     </li>
                 </ul>
@@ -60,19 +60,19 @@
                     </li>
                     <li class="third">
                         <label>
-                            <input type="text" placeholder="Ulica, číslo domu..." name="r_address">
-                            <span class="fauxplaceholder">Ulica, číslo domu...</span>
+                            <input type="text" placeholder="Ulice, číslo..." name="r_address">
+                            <span class="fauxplaceholder">Ulice, číslo...</span>
                         </label>
                     </li>
                 </ul>
             </li>
             <li>
-                <h3 class="formstep__title">Iná správa</h3>
+                <h3 class="formstep__title">Jiná zpráva</h3>
                 <ul class="inputgrid">
                     <li>
                         <label>
-                            <textarea rows="5" placeholder="Iná správa" name="r_message"></textarea>
-                            <span class="fauxplaceholder">Iná správa</span>
+                            <textarea rows="5" placeholder="Jiná zpráva" name="r_message"></textarea>
+                            <span class="fauxplaceholder">Jiná zpráva</span>
                         </label>
                     </li>
                 </ul>
@@ -80,7 +80,7 @@
         </ul>
     </div>
     <div class="formstep">
-        <h3 class="formstep__title">VYBERTE VOZIDLO, KTERÉ SI CHCETE PRONAJMOUT!*</h3>
+        <h3 class="formstep__title">Vyber si vozidlo, které si chceš pronajmout*</h3>
         <?php $titer=0; ?>
         <ul class="checkergrid">
         <?php while ($the_tariffs_1->have_posts()) : $the_tariffs_1->the_post();?>
@@ -113,38 +113,38 @@
         <ul class="checkergrid">
             <li>
                 <label class="checkboxlabel" for="r_time1">
-                    <input id="r_time1" type="checkbox" name="r_time[]" value="1-3 dni">
-                    1-3 dni
+                    <input id="r_time1" type="checkbox" name="r_time[]" value="1-3 dny">
+                    1-3 dny
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time2">
-                    <input id="r_time2" type="checkbox" name="r_time[]" value="4-10 dní">
-                    4-10 dní
+                    <input id="r_time2" type="checkbox" name="r_time[]" value="4-10 dnů">
+                    4-10 dnů
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time3">
-                    <input id="r_time3" type="checkbox" name="r_time[]" value="11-30 dní">
-                    11-30 dní
+                    <input id="r_time3" type="checkbox" name="r_time[]" value="11-30 dnů">
+                    11-30 dnů
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time4">
-                    <input id="r_time4" type="checkbox" name="r_time[]" value="1-3 mesiace">
-                    1-3 mesiace
+                    <input id="r_time4" type="checkbox" name="r_time[]" value="1-3 měsíce">
+                    1-3 měsíce
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time5">
-                    <input id="r_time5" type="checkbox" name="r_time[]" value="4-6 mesiacov">
-                    4-6 mesiacov
+                    <input id="r_time5" type="checkbox" name="r_time[]" value="4-6 měsíců">
+                    4-6 měsíců
                 </label>
             </li>
             <li>
                 <label class="checkboxlabel" for="r_time6">
-                    <input id="r_time6" type="checkbox" name="r_time[]" value="7-12 mesiacov">
-                    7-12 mesiacov
+                    <input id="r_time6" type="checkbox" name="r_time[]" value="7-12 měsíců">
+                    7-12 měsíců
                 </label>
             </li>
         </ul>
@@ -176,7 +176,7 @@
     <input type="hidden" name="r_human" value="2">
     <div class="formactions">
         <button id="reqformsubmit" class="button secondary large reqformsubmit" type="submit" data-progresstext="Send in progress" data-sendtext="Message sent">
-            Odoslať žiadosť o cenovú ponuku
+            Odeslat žádost o cenovou nabídku
         </button>
     </div>
     <div id="reqformresult" class="formresults reqformresult"></div>
