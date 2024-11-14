@@ -196,6 +196,11 @@
             
         ];
 
+        require_once(get_stylesheet_directory().'/lib/zipper.php');
+        if ( $SAPStateCode = getSAPStateCode($data['countrycode']['value'], $data['zip']['value']) ) {
+            $sapdata['IndividualCustomerAddressState'] = $SAPStateCode;
+        }
+
         try {
             $saplead =  $odataClient->post('LeadCollection', $sapdata);
             $output = json_encode(array(
