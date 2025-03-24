@@ -31,6 +31,7 @@ Foundation.Abide.defaults.validators.telvalidator = viaTelValidator;
 // the line below
 //import './lib/foundation-explicit-pieces';
 
+import './lib/utm_form-1.2.0';
 
 $(document).foundation();
 
@@ -163,6 +164,13 @@ $(".reqform").on("submit", function(ev, frm) {
     var user_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').attr('value'):'181_unset';
     var user_sap_audiencesource = $('input[name=r_audiencesource]:checked').length?$('input[name=r_audiencesource]:checked').attr('data-sap-id'):'181';
 
+    var user_utm = {
+        source: $("input[name=USOURCE]").val(),
+        medium: $("input[name=UMEDIUM]").val(),
+        campaign: $("input[name=UCAMPAIGN]").val(),
+        term: $("input[name=UTERM]").val(),
+        content: $("input[name=UCONTENT]").val()
+    };
 
     var user_vehicle= '';
     var user_vehiclearray = [];
@@ -221,7 +229,8 @@ $(".reqform").on("submit", function(ev, frm) {
             vehicle: user_vehicle,
             sap_audiencesource: user_sap_audiencesource,
             sap_VehicleNature: user_sap_VehicleNature,
-            sap_VehicleCategory: user_sap_VehicleCategory
+            sap_VehicleCategory: user_sap_VehicleCategory,
+            utm: user_utm
         };
         $(".reqformsubmit").addClass("disabled");
         $(".reqformsubmit").attr("disabled", "disabled");

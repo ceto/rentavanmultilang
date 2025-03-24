@@ -69,6 +69,10 @@
         'audiencesource' => array (
             'label' => __('Honnan hallottál rólunk?', 'viarent'),
             'value' => '',
+        ),
+        'utm' => array (
+            'label' => __('UTM', 'viarent'),
+            'value' => '',
         )
     );
 ?>
@@ -100,13 +104,12 @@
     $data['audiencesource']['value'] = $theaudiencesources[filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING)];
     $audiencesourceid = explode('_', filter_var($_POST["audiencesource"], FILTER_SANITIZE_STRING))[0];
 
-
-
     $data['message']['value'] = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
-
     $data['message']['value'] = str_replace("\&#39;", "'", $data['message']['value']);
     $data['message']['value'] = str_replace("&#39;", "'", $data['message']['value']);
-    
+
+    $data['utm']['value'] = filter_var(viarent_textify_array($_POST["utm"]), FILTER_SANITIZE_STRING);
+
     $sap_audiencesource = filter_var($_POST["sap_audiencesource"], FILTER_SANITIZE_STRING);
     $sap_VehicleCategory = filter_var($_POST["sap_VehicleCategory"], FILTER_SANITIZE_STRING);
     $sap_VehicleNature = filter_var($_POST["sap_VehicleNature"], FILTER_SANITIZE_STRING);
@@ -192,8 +195,12 @@
             'Vehiclewebpage_KUT' => substr($_SERVER['HTTP_REFERER'],0,39),
             'VehicleCategory_KUT' =>  $sap_VehicleCategory,
             'VehicleNature_KUT' =>  $sap_VehicleNature,
-            'IndividualCustomerContactAllowedCode' => ($data['acceptmarketing']['value']==1)?'1':'2'
-            
+            'IndividualCustomerContactAllowedCode' => ($data['acceptmarketing']['value']==1)?'1':'2',
+            'utm_source_KUT' => filter_var($_POST['utm']['source'], FILTER_SANITIZE_STRING),
+            'utm_medium_KUT' => filter_var($_POST['utm']['medium'], FILTER_SANITIZE_STRING),
+            'utm_campaign_KUT' => filter_var($_POST['utm']['campaign'], FILTER_SANITIZE_STRING),
+            'utm_term_KUT' => filter_var($_POST['utm']['term'], FILTER_SANITIZE_STRING),
+            'utm_content_KUT' => filter_var($_POST['utm']['content'], FILTER_SANITIZE_STRING)  
         ];
 
         require_once(get_stylesheet_directory().'/lib/zipper.php');
