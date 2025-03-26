@@ -117,6 +117,18 @@ layout: english
                 'orderby' => 'menu_order',
                 'order' => 'ASC',
                 'post_status' => array('publish' ),
+                'meta_query' => array(
+                    array(
+                            'key'     => 'hide_inretail',
+                            'value'   => 0,
+                            'compare' => '==',
+                    ),
+                    array(
+                            'key'     => 'hide_inretail',
+                            'compare' => 'NOT EXISTS',
+                    ),
+                    'relation' => 'OR'
+                ),
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'tariffgroups',
@@ -166,6 +178,18 @@ layout: english
                 'orderby' => 'menu_order',
                 'order' => 'ASC',
                 'post_status' => array('publish' ),
+                'meta_query' => array(
+                    array(
+                            'key'     => 'hide_inretail',
+                            'value'   => 0,
+                            'compare' => '==',
+                    ),
+                    array(
+                            'key'     => 'hide_inretail',
+                            'compare' => 'NOT EXISTS',
+                    ),
+                    'relation' => 'OR'
+                ),
                 'tax_query' => array(
                     array(
                         'taxonomy' => 'tariffgroups',
