@@ -192,15 +192,16 @@ select {
     list-style: none;
     margin: 0 -0.25rem;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 0.5rem;
 
     > li {
         display: inline-block;
-        margin: 0.25rem 0.25rem;
+        margin: 0;
         padding: 0;
-        flex-basis: 16rem;
-        flex-grow: 1;
+        // flex-basis: 16rem;
+        // flex-grow: 1;
     }
 }
 
